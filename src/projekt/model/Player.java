@@ -1,7 +1,5 @@
 package projekt.model;
 
-import projekt.control.GameController;
-
 /**
  * enthält Name, Bild, Joker und andere Informationen vom Spielern
  */

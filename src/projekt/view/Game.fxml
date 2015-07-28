@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.view.GameController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -67,7 +68,7 @@
                   </Label>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
                      <children>
-                        <Button fx:id="answer1Button" mnemonicParsing="false" prefWidth="150.0" text="Antwort" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                        <Button fx:id="answerALabel" mnemonicParsing="false" prefWidth="150.0" text="Antwort" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                            <padding>
                               <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                            </padding>
@@ -78,7 +79,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="answer2Button" layoutX="108.0" layoutY="15.0" mnemonicParsing="false" prefWidth="150.0" text="Antwort" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                        <Button fx:id="answerBLabel" layoutX="108.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefWidth="150.0" text="Antwort" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -93,7 +94,7 @@
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
                      <children>
-                        <Button fx:id="answer3Button" mnemonicParsing="false" prefWidth="150.0" text="Antwort" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                        <Button fx:id="answerCLabel" mnemonicParsing="false" prefWidth="150.0" text="Antwort" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -104,7 +105,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="answer4Button" layoutX="108.0" layoutY="10.0" mnemonicParsing="false" prefWidth="150.0" text="Antwort" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                        <Button fx:id="answerDLabel" layoutX="108.0" layoutY="10.0" mnemonicParsing="false" prefWidth="150.0" text="Antwort" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="16.0" />
                            </font>
