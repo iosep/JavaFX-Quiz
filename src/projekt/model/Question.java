@@ -11,22 +11,22 @@ public class Question {
 
     private final String QUESTION;
     private final List<String> ANSWERS;
-    private int CORRECT_ANSWER_IDX;
+    private int correctAnswerIndex;
 
     public Question(String question) {
         QUESTION = question;
         ANSWERS = new ArrayList<>(4);
-        CORRECT_ANSWER_IDX = -1;
+        correctAnswerIndex = -1;
     }
 
-    public Question(String question, List<String> answers, int correctAnswerIdx) {
+    public Question(String question, List<String> answers, int correctAnswerIndex) {
         if (question == null || answers == null) {
             throw new IllegalArgumentException("Question or answer parameter cannot be null.");
         }
 
-        QUESTION = question;
-        ANSWERS = answers;
-        CORRECT_ANSWER_IDX = correctAnswerIdx;
+        this.QUESTION = question;
+        this.ANSWERS = answers;
+        this.correctAnswerIndex = correctAnswerIndex;
 
         if (!this.isValid()) {
             throw new IllegalArgumentException();
@@ -42,7 +42,7 @@ public class Question {
         for (int i = 0; i < ANSWERS.size(); i++) {
             sb.append(ANSWERS.get(i));
 
-            if (i == CORRECT_ANSWER_IDX) {
+            if (i == correctAnswerIndex) {
                 sb.append(" (").append("\u2713").append(")");
             }
 
@@ -55,7 +55,7 @@ public class Question {
     }
 
     public boolean isValid() {
-        return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && CORRECT_ANSWER_IDX > -1 && CORRECT_ANSWER_IDX < ANSWERS.size();
+        return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
     }
 
     public void addAnswer(String answer) {
@@ -64,7 +64,7 @@ public class Question {
 
     public void addCorrectAnswer(String answer) {
         ANSWERS.add(answer);
-        CORRECT_ANSWER_IDX = ANSWERS.size() - 1;
+        correctAnswerIndex = ANSWERS.size() - 1;
     }
 
     public List<String> getAnswers() {
