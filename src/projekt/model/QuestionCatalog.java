@@ -1,16 +1,13 @@
 package projekt.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Class which contains all questions. The questions ordered by categories in a map.
  */
 public class QuestionCatalog {
 
-    private Map<String, List<Question>> catalog;
+    public Map<String, List<Question>> catalog;
 
     public QuestionCatalog() {
         catalog = new HashMap<>();
@@ -46,12 +43,26 @@ public class QuestionCatalog {
         }
     }
 
+    public Question getRandomQuestion(String category) {
+        Random random = new Random();
+        List<Question> categoryCatalog = catalog.get(category);
+        return categoryCatalog.get(random.nextInt(categoryCatalog.size()));
+    }
+
+    public Question getQuestion(String category, int index) {
+        return catalog.get(category).get(index);
+    }
+
     /**
      * Return all categories in catalog.
      *
      * @return Categories as string array.
      */
     public String[] getCategories() {
-        return (String[]) catalog.keySet().toArray();
+        String[] result = new String[catalog.size()];
+        catalog.keySet().toArray(result);
+        Arrays.sort(result);
+
+        return result;
     }
 }

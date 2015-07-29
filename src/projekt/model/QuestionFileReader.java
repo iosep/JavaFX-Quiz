@@ -4,59 +4,61 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Klasse zum Einlesen der Fragen aus einer Datei
- * <p>
- * Die Zeilen in der Fragedatei müssen folgende Kennzeichnungen haben:
- * ###[Kategorie] ##[FRAGE]
- * ++[RICHTIGE ANTWORT]
- * --[FALSCHE ANTWORT]
  */
 public class QuestionFileReader {
 
-    /**
-     * Returns a list filled with question objects parsed from a question file.
-     *
-     * @param path Path to question files.
-     * @return List containing question objects.
-     */
-    public List<Question> getQuestionList(String path) {
-
-        String content = readFile(path);
-
-
-        if (content != null) {
-
-            String[] categories = content.split("###");
-
-
-        }
-        return null;
-    }
-
+    private final String CATEGORY_SEPARATOR = "---";
+    private final String QUESTION_SEPARATOR = "#";
+    private final String CORRECT_ANSWER_INDICATOR = "+";
 
     /**
-     * Reads a file and returns the content.
+     * v
+     * Parses a question file and returns a questionCatalog
      *
-     * @param path Path to file.
-     * @return String with content.
+     * @param path Path to question file.
+     * @return QuestionCatalog with question objects.
      */
-    public String readFile(String path) {
-        StringBuilder sb = new StringBuilder();
+    public QuestionCatalog parseQuestions(String path) {
+        QuestionCatalog catalog = new QuestionCatalog();
 
         try {
             File questionFile = new File(path);
             BufferedReader br = new BufferedReader(new FileReader(questionFile));
 
-            String line;
+            String line = br.readLine();
+            String category = null;
+            Question question = null;
 
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-            }
+            do {
+                if (line.startsWith(CATEGORY_SEPARATOR)) {
+                    category = line.substring(CATEGORY_SEPARATOR.length());
+                    line = br.readLine();
+                } else if (line.startsWith(QUESTION_SEPARATOR)) {
+                    question = new Question(line.substring(QUESTION_SEPARATOR.length()));
 
-            return sb.toString();
+                    while ((line = br.readLine()) != null &&
+                            !line.startsWith(CATEGORY_SEPARATOR) &&
+                            !line.startsWith(QUESTION_SEPARATOR)) {
+
+                        if (line.startsWith(CORRECT_ANSWER_INDICATOR)) {
+                            question.addCorrectAnswer(line.substring(1));
+                        } else {
+                            question.addAnswer(line);
+                        }
+                    }
+
+                    if (question.isValid()) {
+                        catalog.addQuestion(category, question);
+                    } else {
+                        throw new IllegalStateException("Question is not valid. Check question file. " + question);
+                    }
+                }
+            } while (line != null);
+
+            return catalog;
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -3,6 +3,7 @@ package projekt.model;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -22,36 +23,46 @@ public class TestCases {
 
     @Test
     public void questionToString() {
-        Question q = new Question("Welche Farbe hat Cola?", new String[]{"Blau", "Gelb", "Neongrün", "Braun"}, 3);
+        List<String> answers = new ArrayList<>();
+        answers.add("Blau");
+        answers.add("Gelb");
+        answers.add("Neongrün");
+        answers.add("Braun");
 
-        assertEquals("Welche Farbe hat Cola? Blau; Gelb; Neongrün; Braun (✓)", q.toString());
-
+        String result = new Question("Welche Farbe hat Cola?", answers, 3).toString();
+        assertEquals("Welche Farbe hat Cola? Blau; Gelb; Neongrün; Braun (✓)", result);
     }
 
     @Test
     public void getQuestionList() {
-        List<Question> result = qr.getQuestionList("src/projekt/data/test-questions.txt");
+        QuestionCatalog expected = new QuestionCatalog();
+        Question q = new Question("Welche Farben hat die deutsche Flagge?");
+        q.addCorrectAnswer("Schwarz Rot Gold");
+        q.addAnswer("Rot Weiß");
+        q.addAnswer("Bunt");
+        q.addAnswer("Pink");
+        expected.addQuestion("Kultur", q);
 
-        for (Question question : result) {
-            System.out.println(question);
-        }
+        q = new Question("Was gehört traditionell zu einem bayrischen Frühstück dazu?");
+        q.addCorrectAnswer("Weißwurst");
+        q.addAnswer("Fish & Chips");
+        q.addAnswer("Spiegelei");
+        q.addAnswer("Bohnen");
+        expected.addQuestion("Kultur", q);
+
+        q = new Question("Bei welcher Sportart muss man möglichst weit springen?");
+        q.addCorrectAnswer("Hochsprung");
+        q.addAnswer("Weitsprung");
+        q.addAnswer("Stabhochsprung");
+        q.addAnswer("Schach");
+        expected.addQuestion("Sport", q);
+
+        QuestionCatalog result = qr.parseQuestions("src/projekt/data/test-questions.txt");
+
+        assertEquals(expected.getQuestion("Sport", 0).toString(), result.getQuestion("Sport", 0).toString());
+        assertEquals(expected.getQuestion("Kultur", 0).toString(), result.getQuestion("Kultur", 0).toString());
+        assertEquals(expected.getQuestion("Kultur", 1).toString(), result.getQuestion("Kultur", 1).toString());
     }
 
-    @Test
-    public void testReadFile() throws Exception {
-        String expected = "###Kultur" +
-                "##Welche Farben hat die deutsche Flagge?" +
-                "++Schwarz Rot Gold" +
-                "--Rot Weiß gestreift" +
-                "--Bunt" +
-                "--Pink" +
-                "##Was gehört traditionell zu einem bayrischen Frühstück dazu?" +
-                "++Weißwurst" +
-                "--Fish & Chips" +
-                "--Spiegelei" +
-                "--Bohnen";
 
-        String result = qr.readFile("src/projekt/data/test-questions.txt");
-        assertEquals(expected, result);
-    }
 }
