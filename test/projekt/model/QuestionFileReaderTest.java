@@ -3,17 +3,9 @@ package projekt.model;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
-
-/**
- * Test class
- */
-public class TestCases {
-
+public class QuestionFileReaderTest {
     QuestionFileReader qr;
 
     @Before
@@ -22,19 +14,7 @@ public class TestCases {
     }
 
     @Test
-    public void questionToString() {
-        List<String> answers = new ArrayList<>();
-        answers.add("Blau");
-        answers.add("Gelb");
-        answers.add("Neongrün");
-        answers.add("Braun");
-
-        String result = new Question("Welche Farbe hat Cola?", answers, 3).toString();
-        assertEquals("Welche Farbe hat Cola? Blau; Gelb; Neongrün; Braun (✓)", result);
-    }
-
-    @Test
-    public void getQuestionList() {
+    public void testParseQuestions() throws Exception {
         QuestionCatalog expected = new QuestionCatalog();
         Question q = new Question("Welche Farben hat die deutsche Flagge?");
         q.addCorrectAnswer("Schwarz Rot Gold");
@@ -57,12 +37,10 @@ public class TestCases {
         q.addAnswer("Schach");
         expected.addQuestion("Sport", q);
 
-        QuestionCatalog result = qr.parseQuestions("src/projekt/data/test-questions.txt");
+        QuestionCatalog result = qr.parseQuestions("test/projekt/data/test-questions.txt");
 
         assertEquals(expected.getQuestion("Sport", 0).toString(), result.getQuestion("Sport", 0).toString());
         assertEquals(expected.getQuestion("Kultur", 0).toString(), result.getQuestion("Kultur", 0).toString());
         assertEquals(expected.getQuestion("Kultur", 1).toString(), result.getQuestion("Kultur", 1).toString());
     }
-
-
 }

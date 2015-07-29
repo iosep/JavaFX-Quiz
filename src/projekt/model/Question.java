@@ -20,9 +20,17 @@ public class Question {
     }
 
     public Question(String question, List<String> answers, int correctAnswerIdx) {
+        if (question == null || answers == null) {
+            throw new IllegalArgumentException("Question or answer parameter cannot be null.");
+        }
+
         QUESTION = question;
         ANSWERS = answers;
         CORRECT_ANSWER_IDX = correctAnswerIdx;
+
+        if (!this.isValid()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override
@@ -47,7 +55,7 @@ public class Question {
     }
 
     public boolean isValid() {
-        return !QUESTION.isEmpty() && !ANSWERS.isEmpty() && CORRECT_ANSWER_IDX > -1;
+        return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && CORRECT_ANSWER_IDX > -1 && CORRECT_ANSWER_IDX < ANSWERS.size();
     }
 
     public void addAnswer(String answer) {
@@ -57,5 +65,9 @@ public class Question {
     public void addCorrectAnswer(String answer) {
         ANSWERS.add(answer);
         CORRECT_ANSWER_IDX = ANSWERS.size() - 1;
+    }
+
+    public List<String> getAnswers() {
+        return ANSWERS;
     }
 }
