@@ -10,59 +10,52 @@ import java.io.IOException;
  */
 public class QuestionFileReader {
 
-    private final String CATEGORY_SEPARATOR = "---";
-    private final String QUESTION_SEPARATOR = "#";
-    private final String CORRECT_ANSWER_INDICATOR = "+";
+    private static final String CATEGORY_SEPARATOR = "---";
+    private static final String QUESTION_SEPARATOR = "#";
+    private static final String CORRECT_ANSWER_INDICATOR = "+";
 
     /**
-     * v
      * Parses a question file and returns a questionCatalog
      *
      * @param path Path to question file.
      * @return QuestionCatalog with question objects.
      */
-    public QuestionCatalog parseQuestions(String path) {
+    public static QuestionCatalog parseQuestions(String path) throws IOException {
         QuestionCatalog catalog = new QuestionCatalog();
 
-        try {
-            File questionFile = new File(path);
-            BufferedReader br = new BufferedReader(new FileReader(questionFile));
+        File questionFile = new File(path);
+        BufferedReader br = new BufferedReader(new FileReader(questionFile));
 
-            String line = br.readLine();
-            String category = null;
-            Question question = null;
+        String line = br.readLine();
+        String category = null;
+        Question question;
 
-            do {
-                if (line.startsWith(CATEGORY_SEPARATOR)) {
-                    category = line.substring(CATEGORY_SEPARATOR.length());
-                    line = br.readLine();
-                } else if (line.startsWith(QUESTION_SEPARATOR)) {
-                    question = new Question(line.substring(QUESTION_SEPARATOR.length()));
+        do {
+            if (line.startsWith(CATEGORY_SEPARATOR)) {
+                category = line.substring(CATEGORY_SEPARATOR.length());
+                line = br.readLine();
+            } else if (line.startsWith(QUESTION_SEPARATOR)) {
+                question = new Question(line.substring(QUESTION_SEPARATOR.length()));
 
-                    while ((line = br.readLine()) != null &&
-                            !line.startsWith(CATEGORY_SEPARATOR) &&
-                            !line.startsWith(QUESTION_SEPARATOR)) {
+                while ((line = br.readLine()) != null &&
+                        !line.startsWith(CATEGORY_SEPARATOR) &&
+                        !line.startsWith(QUESTION_SEPARATOR)) {
 
-                        if (line.startsWith(CORRECT_ANSWER_INDICATOR)) {
-                            question.addCorrectAnswer(line.substring(1));
-                        } else {
-                            question.addAnswer(line);
-                        }
-                    }
-
-                    if (question.isValid()) {
-                        catalog.addQuestion(category, question);
+                    if (line.startsWith(CORRECT_ANSWER_INDICATOR)) {
+                        question.addCorrectAnswer(line.substring(1));
                     } else {
-                        throw new IllegalStateException("Question is not valid. Check question file. " + question);
+                        question.addAnswer(line);
                     }
                 }
-            } while (line != null);
 
-            return catalog;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                if (question.isValid()) {
+                    catalog.addQuestion(category, question);
+                } else {
+                    throw new IllegalStateException("Question is not valid. Check question file. " + question);
+                }
+            }
+        } while (line != null);
 
-        return null;
+        return catalog;
     }
 }
