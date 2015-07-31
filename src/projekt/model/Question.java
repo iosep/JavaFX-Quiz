@@ -14,6 +14,10 @@ public class Question {
     private int correctAnswerIndex;
 
     public Question(String question) {
+        if (question == null) {
+            throw new IllegalArgumentException("Question parameter cannot be null.");
+        }
+
         QUESTION = question;
         ANSWERS = new ArrayList<>(4);
         correctAnswerIndex = -1;
@@ -63,8 +67,8 @@ public class Question {
     }
 
     public void addCorrectAnswer(String answer) {
+        correctAnswerIndex = ANSWERS.size();
         ANSWERS.add(answer);
-        correctAnswerIndex = ANSWERS.size() - 1;
     }
 
     public List<String> getAnswers() {

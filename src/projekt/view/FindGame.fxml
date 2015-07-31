@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.view.FindGameController">
+   <children>
+      <Text fx:id="playerNameText" layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <ImageView fx:id="playerImgView" fitHeight="150.0" fitWidth="200.0" layoutX="54.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>

@@ -12,7 +12,6 @@ import static org.junit.Assert.*;
  */
 public class QuestionTest {
 
-
     @Test
     public void testGetAnswers() {
         List<String> expected = new ArrayList<>();
@@ -49,7 +48,7 @@ public class QuestionTest {
 
     @Test
     public void testAddCorrectAnswer() throws Exception {
-
+        assert false;
     }
 
     @Test

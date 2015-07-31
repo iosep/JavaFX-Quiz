@@ -42,7 +42,7 @@ public class QuestionFileReader {
                         !line.startsWith(QUESTION_SEPARATOR)) {
 
                     if (line.startsWith(CORRECT_ANSWER_INDICATOR)) {
-                        question.addCorrectAnswer(line.substring(1));
+                        question.addCorrectAnswer(line.substring(CORRECT_ANSWER_INDICATOR.length()));
                     } else {
                         question.addAnswer(line);
                     }

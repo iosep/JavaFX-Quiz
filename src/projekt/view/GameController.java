@@ -1,15 +1,19 @@
 package projekt.view;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
 import projekt.Start;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /**
  * enthält Regeln und Informationen des Spiels
  */
-public class GameController {
+public class GameController implements Initializable {
 
     @FXML
     private Circle jokerOneRight;
@@ -62,8 +66,8 @@ public class GameController {
     @FXML
     private Circle jokerTwoRight;
 
-    @FXML
-    void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         assert jokerOneRight != null : "fx:id=\"jokerOneRight\" was not injected: check your FXML file 'Game.fxml'.";
         assert jokerThreeLeft != null : "fx:id=\"jokerThreeLeft\" was not injected: check your FXML file 'Game.fxml'.";
         assert playerOneLabel != null : "fx:id=\"playerOneLabel\" was not injected: check your FXML file 'Game.fxml'.";
@@ -99,12 +103,4 @@ public class GameController {
 
     }
 
-    /**
-     * Sets a reference to the main app.
-     *
-     * @param mainApp
-     */
-    public void setMainApp(Start mainApp) {
-        this.mainApp = mainApp;
-    }
 }
