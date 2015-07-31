@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasse zum Lesen von Verzeichnissen und Dateien.
+ */
 public class FileReader {
 
     /**

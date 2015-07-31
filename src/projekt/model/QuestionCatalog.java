@@ -3,21 +3,26 @@ package projekt.model;
 import java.util.*;
 
 /**
- * Class which contains all questions. The questions ordered by categories in a map.
+ * Klasse die zur Erstellung eines Katalogs mit Fragen dient.
+ * Sie enthält Methoden zur Verwaltung von Fragen und Kategorien.
+ * Die Fragen werden in Kategorien angeordnet.
  */
 public class QuestionCatalog {
 
     public Map<String, List<Question>> catalog;
 
+    /**
+     * Konstruktor für einen leeren Fragenkatalog.
+     */
     public QuestionCatalog() {
         catalog = new HashMap<>();
     }
 
     /**
-     * Adds a single question to a category.
+     * Fügt eine Frage zu einer Kategorie hinzu
      *
-     * @param category Category of the question.
-     * @param question Question object.
+     * @param category Kategorie der Frage.
+     * @param question Entsprechendes Questionobjekt.
      */
     public void addQuestion(String category, Question question) {
         if (catalog.containsKey(category)) {
@@ -30,10 +35,10 @@ public class QuestionCatalog {
     }
 
     /**
-     * Adds a List of questions to a category.
+     * Fügt eine Liste von Fragen zu einer Kategorie hinzu
      *
-     * @param category  Category of the questions.
-     * @param questions List of Question object.
+     * @param category  Kategorie der Fragen.
+     * @param questions Entsprechende Liste mit Questionobjekten.
      */
     public void addQuestions(String category, List<Question> questions) {
         if (catalog.containsKey(category)) {
@@ -43,20 +48,33 @@ public class QuestionCatalog {
         }
     }
 
+    /**
+     * Gibt eine zufällige Frage zu einer Kategorie zurück.
+     *
+     * @param category Kategorie, aus der die Frage ausgewählt werden soll.
+     * @return Zufällige Frage aus der angegebenen Kategorie.
+     */
     public Question getRandomQuestion(String category) {
         Random random = new Random();
         List<Question> categoryCatalog = catalog.get(category);
         return categoryCatalog.get(random.nextInt(categoryCatalog.size()));
     }
 
+    /**
+     * Gibt eine bestimmte Frage, die am angegebenen Index aus einer Kategorie liegt, zurück.
+     *
+     * @param category Kategorie, aus der die Frage ausgewählt wird.
+     * @param index    Index der Frage, die ausgewählt wird.
+     * @return Ausgewähltes Questionobjekt.
+     */
     public Question getQuestion(String category, int index) {
         return catalog.get(category).get(index);
     }
 
     /**
-     * Return all categories in catalog.
+     * Gibt alle Kategorien des Katalogs zurück.
      *
-     * @return Categories as string array.
+     * @return Kategorien als String Array.
      */
     public String[] getCategories() {
         String[] result = new String[catalog.size()];

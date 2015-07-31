@@ -13,6 +13,11 @@ public class Question {
     private final List<String> ANSWERS;
     private int correctAnswerIndex;
 
+    /**
+     * Konstruktor für Frageobjekt, das nur die Frage und eine leere Liste mit Antwortmöglichkeiten enthält.
+     *
+     * @param question String, der die Frage enthält.
+     */
     public Question(String question) {
         if (question == null) {
             throw new IllegalArgumentException("Question parameter cannot be null.");
@@ -23,7 +28,15 @@ public class Question {
         correctAnswerIndex = -1;
     }
 
-    public Question(String question, List<String> answers, int correctAnswerIndex) {
+    /**
+     * Kontruktor für ein Frageobjekt.
+     *
+     * @param question           String, der die Frage enthält.
+     * @param answers            Liste von Strings, die die Antwortmöglichkeiten enthalten.
+     * @param correctAnswerIndex Index der Antwortliste, an der die richtige Antwort liegt.
+     * @throws IllegalArgumentException wenn die Antwortliste oder die Frage null oder die Kombination der Parameter nicht valide ist.
+     */
+    public Question(String question, List<String> answers, int correctAnswerIndex) throws IllegalArgumentException {
         if (question == null || answers == null) {
             throw new IllegalArgumentException("Question or answer parameter cannot be null.");
         }
@@ -58,19 +71,39 @@ public class Question {
         return sb.toString();
     }
 
+    /**
+     * Überprüft das Question-Objekt auf seine Richtigkeit und gibt ein boolean zurück.
+     *
+     * @return True, wenn die Frage valide ist. False, wenn nicht.
+     */
     public boolean isValid() {
         return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
     }
 
+    /**
+     * Fügt eine neue (falsche) Antwortmöglichkeit hinzu.
+     *
+     * @param answer String der die Antwortmöglichkeit enthält.
+     */
     public void addAnswer(String answer) {
         ANSWERS.add(answer);
     }
 
+    /**
+     * Fügt eine neue (richtige) Antwortmöglichkeit hinzu.
+     *
+     * @param answer String der die richtige Antwort enthält.
+     */
     public void addCorrectAnswer(String answer) {
         correctAnswerIndex = ANSWERS.size();
         ANSWERS.add(answer);
     }
 
+    /**
+     * Gibt die Antwortmöglichkeiten als Liste mit Strings zurück.
+     *
+     * @return Antwortmöglichkeiten
+     */
     public List<String> getAnswers() {
         return ANSWERS;
     }
