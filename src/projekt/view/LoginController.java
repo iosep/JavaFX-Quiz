@@ -35,6 +35,9 @@ public class LoginController implements Initializable {
     @FXML
     private Button loginButton;
 
+    public LoginController() {
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         assert playerImgView != null : "fx:id=\"playerImgView\" was not injected: check your FXML file 'LoginScreen.fxml'.";
@@ -49,15 +52,16 @@ public class LoginController implements Initializable {
     @FXML
     void loginHandler(ActionEvent event) {
         if (playerNameTextField.getText().isEmpty()) {
-            ScreenController.showNotification("Please select a username");
+            ScreenController.showWarningNotification("Please select a username", 1500);
         } else {
             try {
                 ScreenController.showFindGameView(new Player(playerImgView.getImage(), playerNameTextField.getText()));
             } catch (IOException e) {
-                e.printStackTrace();
+                ScreenController.showErrorNotification(e.getMessage(), 0);
             }
         }
     }
+
 
     @FXML
     void prevImageHandler(ActionEvent event) {

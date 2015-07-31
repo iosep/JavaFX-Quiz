@@ -65,6 +65,16 @@ public class GameController implements Initializable {
 
     @FXML
     private Circle jokerTwoRight;
+    // Reference to the main app
+    private Start mainApp;
+
+    /**
+     * Constructor of game controller class.
+     * Is called before initialize() method.
+     */
+    public GameController() {
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -90,17 +100,6 @@ public class GameController implements Initializable {
     @FXML
     void onMouseClicked() {
         System.out.println("Dies ist ein Test");
-    }
-
-    // Reference to the main app
-    private Start mainApp;
-
-    /**
-     * Constructor of game controller class.
-     * Is called before initialize() method.
-     */
-    public GameController() {
-
     }
 
 }

@@ -8,7 +8,7 @@ package projekt.model;
  * - Spieler können verschiedene Joker nutzen: 50:50-Joker, Zeitverlängerungs-Joker, neue-Frage-Joker
  * - Bedingungen für Joker festlegen
  * - für jeden Spieler soll ein Highscore/Punktestand angezeigt werden
- *
+ * <p>
  * Created by Scratcherz on 28.07.2015.
  */
 public class Game {

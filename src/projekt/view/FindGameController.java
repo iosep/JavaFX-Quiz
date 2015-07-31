@@ -22,9 +22,9 @@ public class FindGameController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Init");
+        assert playerNameText != null : "fx:id=\"playerNameText\" was not injected: check your FXML file 'FindGame.fxml'.";
+        assert playerImgView != null : "fx:id=\"playerImgView\" was not injected: check your FXML file 'FindGame.fxml'.";
     }
-
 
     public void initPlayer(Player player) {
         playerImgView.setImage(player.getImg());
