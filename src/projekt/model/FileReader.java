@@ -10,7 +10,7 @@ import java.util.List;
 public class FileReader {
 
     /**
-     * Liest alle Dateien in einem Verzeichnis und gibt die Pfade der Dateien als Liste mit Strings zurück.
+     * Liest alle Dateien in einem Verzeichnis ein und gibt die Pfade der Dateien als Liste mit Strings zurück.
      *
      * @param path Verzeichnis, das nach Dateinamen durchsucht werden soll.
      * @return Liste mit Dateinamen.
