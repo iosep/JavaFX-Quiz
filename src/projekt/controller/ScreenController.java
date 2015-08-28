@@ -100,6 +100,7 @@ public class ScreenController {
 
     public static void showRules() throws IOException {
         loadSceneToSecondaryStage("Rules");
+        secondaryStage.show();
     }
 
     /**
@@ -122,5 +123,6 @@ public class ScreenController {
 
     public static void showAboutUs() throws IOException {
         loadSceneToSecondaryStage("AboutUs");
+        secondaryStage.show();
     }
 }
