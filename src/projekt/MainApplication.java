@@ -11,6 +11,8 @@ public class MainApplication extends Application {
     public static final int NUM_ROUNDS = 2;
     // default 3
     public static final int NUM_QUESTIONS_PER_ROUND = 1;
+    public static final int RIGHT_ANSWER_SCORE = 100;
+    public static final int WRONG_ANSWER_SCORE = 50;
 
     @Override
     public void start(Stage primaryStage) throws Exception {

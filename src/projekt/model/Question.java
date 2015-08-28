@@ -12,6 +12,7 @@ public class Question {
     private final String QUESTION;
     private final List<String> ANSWERS;
     private int correctAnswerIndex;
+
     /**
      * Konstruktor für Frageobjekt, das nur die Frage und eine leere Liste mit Antwortmöglichkeiten enthält.
      *
@@ -109,5 +110,17 @@ public class Question {
      */
     public List<String> getAnswers() {
         return ANSWERS;
+    }
+
+    /**
+     * Überprüft, ob eine Antwort richtig ist.
+     *
+     * @param answer Zu prüfende Antwort..
+     * @return True, wenn Antwort richtig ist. False, wenn nicht.
+     */
+    public boolean isAnswerCorrect(String answer) {
+
+        System.out.printf("Correct: %s = %s (%s)\n", ANSWERS.get(correctAnswerIndex), answer, answer.equals(ANSWERS.get(correctAnswerIndex)));
+        return answer.equals(ANSWERS.get(correctAnswerIndex));
     }
 }

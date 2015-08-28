@@ -15,6 +15,7 @@ import projekt.model.Player;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -45,7 +46,7 @@ public class LoginController implements Initializable {
         assert loginButton != null : "fx:id=\"loginButton\" was not injected: check your FXML file 'LoginScreen.fxml'.";
 
         playerImages = FileReader.getFileList("src/" + MainApplication.PATH_PLAYER_IMAGES);
-        playerImageNum = 7;
+        playerImageNum = new Random().nextInt(playerImages.size());
         nextImageHandler(null);
     }
 
