@@ -5,15 +5,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import projekt.MainApplication;
+import projekt.controller.ScreenController;
+import projekt.model.Game;
 import projekt.model.Player;
+import projekt.model.QuestionCatalog;
+import projekt.model.QuestionFileReader;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
  * enthält Regeln und Informationen des Spiels
  */
 public class Game2Controller implements Initializable {
+
+    Game game;
 
     @FXML
     private Label playerNameText;
@@ -42,11 +51,14 @@ public class Game2Controller implements Initializable {
     @FXML
     private Button answerCButton;
 
+    private Button[] answerButtons;
+
     /**
      * Constructor of game controller class.
      * Is called before initialize() method.
      */
     public Game2Controller() {
+        game = new Game();
     }
 
     @Override
@@ -60,9 +72,39 @@ public class Game2Controller implements Initializable {
         assert answerAButton != null : "fx:id=\"answerAButton\" was not injected: check your FXML file 'Game2.fxml'.";
         assert questionLabel != null : "fx:id=\"questionLabel\" was not injected: check your FXML file 'Game2.fxml'.";
         assert answerCButton != null : "fx:id=\"answerCButton\" was not injected: check your FXML file 'Game2.fxml'.";
+
+        answerButtons = new Button[]{answerAButton, answerBButton, answerCButton, answerDButton};
+
+        try {
+            // fragen einlesen
+            QuestionCatalog questionCatalog = QuestionFileReader.parseQuestions("src/projekt/data/questions.txt");
+            List<String> categories = questionCatalog.getCategories(MainApplication.NUM_QUESTIONS_PER_ROUND);
+
+            // prüfen, ob genug fragen vorhanden sind
+            if (categories.size() >= MainApplication.NUM_ROUNDS) {
+                game.setCategories(categories);
+                game.setQuestionCatalog(questionCatalog);
+
+                // zeige kategorie und frage
+                categoryLabel.setText(game.getCurrentCategory());
+                questionLabel.setText(game.getCurrentQuestion().getQUESTION());
+
+                // zeige antworten
+                for (int i = 0; i < game.getCurrentQuestion().getAnswers().size(); i++) {
+                    answerButtons[i].setText(game.getCurrentQuestion().getAnswers().get(i));
+                }
+            } else {
+                ScreenController.showWarningNotification("Not enough questions found!", 0);
+                ScreenController.showFinalScreen(null);
+            }
+
+        } catch (IOException e) {
+            ScreenController.showErrorNotification(e.getMessage(), 0);
+        }
     }
 
     public void initPlayer(Player player) {
+        game.setPlayer(player);
         playerImgView.setImage(player.getImg());
         playerNameText.setText(player.getName());
         scoreLabel.setText(String.valueOf(player.getScore()));
