@@ -12,7 +12,6 @@ public class Question {
     private final String QUESTION;
     private final List<String> ANSWERS;
     private int correctAnswerIndex;
-
     /**
      * Konstruktor für Frageobjekt, das nur die Frage und eine leere Liste mit Antwortmöglichkeiten enthält.
      *
@@ -50,6 +49,19 @@ public class Question {
         }
     }
 
+    /**
+     * Überprüft das Question-Objekt auf seine Richtigkeit und gibt ein boolean zurück.
+     *
+     * @return True, wenn die Frage valide ist. False, wenn nicht.
+     */
+    public boolean isValid() {
+        return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
+    }
+
+    public String getQUESTION() {
+        return QUESTION;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -69,15 +81,6 @@ public class Question {
         }
 
         return sb.toString();
-    }
-
-    /**
-     * Überprüft das Question-Objekt auf seine Richtigkeit und gibt ein boolean zurück.
-     *
-     * @return True, wenn die Frage valide ist. False, wenn nicht.
-     */
-    public boolean isValid() {
-        return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
     }
 
     /**

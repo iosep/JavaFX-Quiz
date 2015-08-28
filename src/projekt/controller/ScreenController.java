@@ -132,4 +132,7 @@ public class ScreenController {
         gameController.initPlayer(player);
         primaryStage.show();
     }
+
+    public static void showFinalScreen(Player player) throws IOException {
+    }
 }

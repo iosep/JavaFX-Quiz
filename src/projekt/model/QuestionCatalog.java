@@ -1,5 +1,7 @@
 package projekt.model;
 
+import projekt.MainApplication;
+
 import java.util.*;
 
 /**
@@ -72,15 +74,31 @@ public class QuestionCatalog {
     }
 
     /**
-     * Gibt alle Kategorien des Katalogs zurück.
+     * Gibt alle Kategorien des Katalogs zurück, die eine entsprechende Anzahl an Fragen besitzen.
      *
-     * @return Kategorien als String Array.
+     * @param numQuestions Mindestanzahl an Fragen, die eine Kategorie haben muss.
+     * @return Kategorien als String List.
      */
-    public String[] getCategories() {
-        String[] result = new String[catalog.size()];
-        catalog.keySet().toArray(result);
-        Arrays.sort(result);
+    public List<String> getCategories(int numQuestions) {
+        List<String> result = new ArrayList<>(catalog.size());
 
+        for (String s : catalog.keySet()) {
+            if (catalog.get(s).size() >= numQuestions) {
+                result.add(s);
+            }
+        }
+
+        result.sort(Comparator.<String>naturalOrder());
         return result;
     }
+
+    /**
+     * Gibt die Anzahl der Kategorien zurück.
+     *
+     * @return Anzahl der Kategorien.
+     */
+    public int getNumCategories() {
+        return catalog.size();
+    }
+
 }
