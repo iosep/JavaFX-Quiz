@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="246.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Group layoutX="-49.0" layoutY="-21.0">
+         <children>
+            <Text fill="#797575" layoutX="149.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUIZ" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text layoutX="64.0" layoutY="64.0" rotate="-10.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Scratcherz">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Text layoutX="15.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Das &quot;Scratcherz Quiz&quot; ist ein virtuelles Quiz, welches im Rahmen eines Uni-Projekts entstanden ist. Gruppenmitglieder der &quot;Scratcherz&quot; sind: Björn Kuhnert, Gideon O´Donnell, Nils Pinkerneil und Marian Hansing." wrappingWidth="216.13671875" />
+      <Text layoutX="15.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nach dem Starten des Spiels erscheint der Login-Screen. Hier hat der Spieler die Möglichkeit, seinen Namen einzutragen und sich einen Spiel-Avatar auszuwählen. Bei unserem Quiz werden Fragen zu vier Kategorien gestellt. Diese sind Technik, Kultur, Sport und Wirtschaft." wrappingWidth="216.13671875" />
+   </children>
+</Pane>
