@@ -1,5 +1,8 @@
 package projekt.model;
 
+import projekt.MainApplication;
+import projekt.controller.ScreenController;
+
 import java.util.List;
 import java.util.Random;
 
@@ -15,14 +18,18 @@ import java.util.Random;
  * Created by Scratcherz on 28.07.2015.
  */
 public class Game {
-    String currentCategory;
-    Question currentQuestion;
+    private String currentCategory;
+    private int roundNum;
+    private int questionNum;
+    private Question currentQuestion;
     private QuestionCatalog questionCatalog;
     private List<String> categories;
     private Player player;
     private Random rand;
 
     public Game() {
+        questionNum = 0;
+        roundNum = 0;
     }
 
     public String getCurrentCategory() {
@@ -44,7 +51,52 @@ public class Game {
         this.categories = categories;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    /**
+     * Wählt eine Antwort aus und gibt zurück, ob sie richtig ist oder nicht.
+     *
+     * @param answer Ausgewählte Antwort als String.
+     * @return True, wenn Antwort richtig. False, wenn nicht.
+     */
+    public boolean chooseAnswer(String answer) {
+        int score = player.getScore();
+        questionNum++;
+
+        if (currentQuestion.isAnswerCorrect(answer)) {
+            player.setScore(score + MainApplication.RIGHT_ANSWER_SCORE);
+            updateQuestion();
+            return true;
+        } else {
+            player.setScore(score - MainApplication.WRONG_ANSWER_SCORE);
+            updateQuestion();
+            return false;
+        }
+
+    }
+
+    private void updateQuestion() {
+        questionNum++;
+
+        if (questionNum % MainApplication.NUM_QUESTIONS_PER_ROUND == 0) {
+            roundNum++;
+            if (roundNum >= MainApplication.NUM_ROUNDS) {
+                //ENDE
+                ScreenController.showInformationNotification("---ENDE---\nScore: " + player.getScore(), 0);
+            } else {
+                // NEUE RUNDE
+                currentCategory = categories.remove(rand.nextInt(categories.size()));
+                currentQuestion = questionCatalog.getRandomQuestion(currentCategory);
+            }
+        } else {
+            currentQuestion = questionCatalog.getRandomQuestion(currentCategory);
+            // NÄCHSTE FRAGE
+        }
     }
 }

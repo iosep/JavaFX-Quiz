@@ -85,14 +85,6 @@ public class Game2Controller implements Initializable {
                 game.setCategories(categories);
                 game.setQuestionCatalog(questionCatalog);
 
-                // zeige kategorie und frage
-                categoryLabel.setText(game.getCurrentCategory());
-                questionLabel.setText(game.getCurrentQuestion().getQUESTION());
-
-                // zeige antworten
-                for (int i = 0; i < game.getCurrentQuestion().getAnswers().size(); i++) {
-                    answerButtons[i].setText(game.getCurrentQuestion().getAnswers().get(i));
-                }
             } else {
                 ScreenController.showWarningNotification("Not enough questions found!", 0);
                 ScreenController.showFinalScreen(null);
@@ -103,10 +95,50 @@ public class Game2Controller implements Initializable {
         }
     }
 
+    @FXML
+    void chooseAnswerA() {
+        game.chooseAnswer(answerAButton.getText());
+        display();
+    }
+
+    private void display() {
+        // zeige punktestand
+        scoreLabel.setText(String.valueOf(game.getPlayer().getScore()));
+
+        // zeige kategorie und frage
+        categoryLabel.setText(game.getCurrentCategory());
+        questionLabel.setText(game.getCurrentQuestion().getQUESTION());
+
+        // zeige antworten
+        for (int i = 0; i < game.getCurrentQuestion().getAnswers().size(); i++) {
+            // TODO: Antworten zufällig zeigen -> Später auf Vergleich achten
+            answerButtons[i].setText(game.getCurrentQuestion().getAnswers().get(i));
+        }
+    }
+
+    @FXML
+    void chooseAnswerB() {
+        game.chooseAnswer(answerBButton.getText());
+        display();
+    }
+
+    @FXML
+    void chooseAnswerC() {
+        game.chooseAnswer(answerCButton.getText());
+        display();
+    }
+
+    @FXML
+    void chooseAnswerD() {
+        game.chooseAnswer(answerDButton.getText());
+        display();
+    }
+
     public void initPlayer(Player player) {
         game.setPlayer(player);
         playerImgView.setImage(player.getImg());
         playerNameText.setText(player.getName());
         scoreLabel.setText(String.valueOf(player.getScore()));
+        display();
     }
 }

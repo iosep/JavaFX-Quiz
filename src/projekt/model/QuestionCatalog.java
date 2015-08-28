@@ -51,7 +51,7 @@ public class QuestionCatalog {
     }
 
     /**
-     * Gibt eine zufällige Frage zu einer Kategorie zurück.
+     * Entfernt eine zufällige Frage zu einer Kategorie und gibt sie zurück.
      *
      * @param category Kategorie, aus der die Frage ausgewählt werden soll.
      * @return Zufällige Frage aus der angegebenen Kategorie.
@@ -59,7 +59,7 @@ public class QuestionCatalog {
     public Question getRandomQuestion(String category) {
         Random random = new Random();
         List<Question> categoryCatalog = catalog.get(category);
-        return categoryCatalog.get(random.nextInt(categoryCatalog.size()));
+        return categoryCatalog.remove(random.nextInt(categoryCatalog.size()));
     }
 
     /**

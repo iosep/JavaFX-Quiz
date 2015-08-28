@@ -11,7 +11,7 @@ Spiegelei
 Bohnen
 ---Sport
 #Bei welcher Sportart muss man möglichst weit springen?
-+Hochsprung
-Weitsprung
+Hochsprung
++Weitsprung
 Stabhochsprung
 Schach
