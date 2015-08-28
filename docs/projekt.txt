@@ -25,5 +25,6 @@ Meilensteine:
 1. Meilenstein am 31.07.2015:
 Aufbau/Design des Hauptfensters, Design der Klassenhierarchie, Spielstart- und Login-Dialog
 
-        Abgabe am 31.08.2015: Menü-Leiste, Einlesen von Daten, Struktur von Paketen und Dokumentation,
+2. Meilenstein (Abgabe)am 31.08.2015:
+Menü-Leiste, Einlesen von Daten, Struktur von Paketen und Dokumentation,
 
