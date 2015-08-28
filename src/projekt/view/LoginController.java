@@ -50,28 +50,31 @@ public class LoginController implements Initializable {
     }
 
     @FXML
+    void nextImageHandler(ActionEvent event) {
+        playerImageNum = ++playerImageNum % playerImages.size();
+        playerImgView.setImage(new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(playerImageNum)));
+    }
+
+    @FXML
     void loginHandler(ActionEvent event) {
         if (playerNameTextField.getText().isEmpty()) {
             ScreenController.showWarningNotification("Please select a username", 1500);
         } else {
             try {
-                ScreenController.showFindGameView(new Player(playerImgView.getImage(), playerNameTextField.getText()));
+                Player player = new Player(playerImgView.getImage(), playerNameTextField.getText());
+                player.setScore(0);
+
+                ScreenController.showGameView(player);
+//                ScreenController.showFindGameView(new Player(playerImgView.getImage(), playerNameTextField.getText()));
             } catch (IOException e) {
                 ScreenController.showErrorNotification(e.getMessage(), 0);
             }
         }
     }
 
-
     @FXML
     void prevImageHandler(ActionEvent event) {
         playerImageNum = (playerImages.size() + --playerImageNum) % playerImages.size();
-        playerImgView.setImage(new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(playerImageNum)));
-    }
-
-    @FXML
-    void nextImageHandler(ActionEvent event) {
-        playerImageNum = ++playerImageNum % playerImages.size();
         playerImgView.setImage(new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(playerImageNum)));
     }
 }

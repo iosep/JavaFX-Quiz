@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 public class Player {
     private Image img;
     private String name;
+    private int score;
 
     public Player(Image img, String name) {
         this.img = img;
@@ -26,11 +27,33 @@ public class Player {
     }
 
     /**
+     * Setzt das Bild des Spieler.
+     *
+     * @param img Bild, das der Spieler erhalten soll.
+     */
+    public void setImg(Image img) {
+        this.img = img;
+    }
+
+    /**
      * Gibt den Namen des Spielers zurück.
      *
      * @return Name des Spielers.
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Gibt den Punktestand des Spielers zurück.
+     *
+     * @return Punktestand des Spielers.
+     */
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

@@ -65,8 +65,6 @@ public class GameController implements Initializable {
 
     @FXML
     private Circle jokerTwoRight;
-    // Reference to the main app
-    private Start mainApp;
 
     /**
      * Constructor of game controller class.

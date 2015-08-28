@@ -8,6 +8,7 @@ import org.controlsfx.control.NotificationPane;
 import projekt.MainApplication;
 import projekt.model.Player;
 import projekt.view.FindGameController;
+import projekt.view.Game2Controller;
 
 import java.io.IOException;
 
@@ -124,5 +125,11 @@ public class ScreenController {
     public static void showAboutUs() throws IOException {
         loadSceneToSecondaryStage("AboutUs");
         secondaryStage.show();
+    }
+
+    public static void showGameView(Player player) throws IOException {
+        Game2Controller gameController = loadSceneToPrimaryStage("Game2");
+        gameController.initPlayer(player);
+        primaryStage.show();
     }
 }
