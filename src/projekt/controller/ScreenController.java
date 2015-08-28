@@ -1,12 +1,9 @@
 package projekt.controller;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.controlsfx.control.NotificationPane;
 import projekt.MainApplication;
 import projekt.model.Player;
@@ -36,6 +33,8 @@ public class ScreenController {
     }
 
     private static void showNotification(double duration, String text) {
+        System.out.println(text);
+/*
         if (duration > 0) {
             Timeline timeline = new Timeline(new KeyFrame(
                     Duration.millis(duration),
@@ -43,6 +42,7 @@ public class ScreenController {
             timeline.play();
         }
         notificationPane.show(text);
+*/
     }
 
     /**
