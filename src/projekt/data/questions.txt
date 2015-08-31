@@ -71,7 +71,7 @@ Berliner Vogel
 #Wie lang war die innerstädtische Grenze zwischen Ost- und West-Berlin?
 155 km
 87 km
-43 km
++43 km
 104 km
 ---Wirtschaft und Politik
 #In welchem Zeitraum war Helmut Kohl Bundeskanzler der Bundesrepublik Deutschland?
