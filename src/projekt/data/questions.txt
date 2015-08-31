@@ -1,17 +1,65 @@
----Kultur
-#Welche Farben hat die deutsche Flagge?
-+Schwarz Rot Gold
-Rot Weiß
-Bunt
-Pink
-#Was gehört traditionell zu einem bayrischen Frühstück dazu?
-+Weißwurst
-Fish & Chips
-Spiegelei
-Bohnen
+---Technik
+#Wie lautet der Name des Computers, der im Jahr 1981 von der Firma Luxor veröffentlicht wurde?
+Amiga 500
+Atari Falcon
++ABC 800
+Macintosh Plus
+#Was macht man mit einem Anker?
++Lichten
+Schalten
+Dunkeln
+Knipsen
+#Wie heißt der aktuelle Apple- Chef?
+Steve Jobs
+Taylor McGrilly
+Arthur Grace
++Tim Cook
+---Medien und Unterhaltung
+#Wer warb für die Telefon-Auskunft mit dem Slogan „Da werden Sie geholfen“?
+Uli Hoeneß
++Verona Pooth
+Ursula von der Leyen
+Michaela Schäfer
+#In welchem Jahr gewann Lena Meyer-Landrut den Eurovision Song Contest?
+2011
+2009
++2010
+2013
+Wie viel US-Dollar kostete ein 30-sekündiger Werbespot während des Superbowls 2015 im American
+#Football?
+3 Mio. US-Dollar
++4,5 Mio. US-Dollar
+700.000 US-Dollar
+1,5 Mio. US-Dollar
 ---Sport
-#Bei welcher Sportart muss man möglichst weit springen?
-Hochsprung
-+Weitsprung
-Stabhochsprung
-Schach
+#In welchem Jahr gewann Hannover 96 zum letzten Mal den DFB Pokal?
++1992
+1991
+1997
+2000
+#In welchem Land findet die Fußball Weltmeisterschaft im Jahr 2022 statt?
+Serbien
+Polen
+Australien
++Katar
+#Welcher Tennisspieler konnte bereits 14 Grand-Slam Titel feiern?
++Rafael Nadal
+Roger Federer
+Andy Murray
+Novak Đoković
+Kultur
+#In welchem Land lebten im Jahr 2013 127,3 Millionen Menschen?
+Russland
+China
++Japan
+Griechenland
+#Welche Meere grenzen an Spanien?
++Atlantik & Mittelmeer
+Mittelmeer & Totes Meer
+Pazifik & Schwarzes Meer
+Indischer Ozean & Rotes Meer
+#Welches Stofftier gilt als Wahrzeichen von Berlin?
+Berliner Hase
+Berliner Esel
+Berliner Vogel
++Berliner Bär
