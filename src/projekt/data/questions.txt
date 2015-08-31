@@ -9,11 +9,46 @@ Macintosh Plus
 Schalten
 Dunkeln
 Knipsen
-#Wie heißt der aktuelle Apple- Chef?
+#Wie heißt der aktuelle Apple-Chef?
 Steve Jobs
 Taylor McGrilly
 Arthur Grace
 +Tim Cook
+#Wann gab es in Hochhäusern die ersten Aufzüge?
+1900
+1925
+1889
++1857
+#Wann gab es den ersten elektrischen Staubsauger?
++1901
+1950
+1877
+1912
+#Wo befindet sich das längste U-Bahn Netz der Welt?
+Paris
+Madrid
++Moskau
+New York
+#Welcher Ingenieur erhielt das erste Patent für ein Automobil?
+Gottlieb Daimler
++Carl Benz
+Wilhelm Maybach
+August Horch
+#Zu welcher Automarke gehört das Modell „RS3“?
+Opel
+Mercedes
+BMW
++Audi
+#Wie heißt ein Einweg-Lufterfrischer, den viele Menschen in ihren Autos anbringen?
++Wunderbaum
+Duftquelle
+Morgenluft
+Abendröte
+#Was erfand Ludvig Nobel?
+Feuerlöscher
+Halogen-Lampe
++Öltanker
+Steckdose
 ---Medien und Unterhaltung
 #Wer warb für die Telefon-Auskunft mit dem Slogan „Da werden Sie geholfen“?
 Uli Hoeneß
@@ -52,6 +87,26 @@ Australien
 Roger Federer
 Andy Murray
 Novak Đoković
+#Mit welcher Sportlerin war Tiger Woods fast drei Jahre lang liiert?
++Lindsey Vonn
+Serena Williams
+Sabine Liesicki
+Sarah Taylor
+#In welchem Land fand 1998 die Fußball Weltmeisterschaft statt?
+Portugal
+England
++Frankreich
+Deutschland
+#Welches Fußballstadion bietet den meisten Zuschauern Platz?
+HDI-Arena
++Signal-Iduna Park
+Allianz Arena
+Veltins Arena
+#Was ist ein „Expander“?
++Fitnessgerät
+Position beim American Football
+Hilfsmittel beim Curling
+Golfschläger
 ---Kultur
 #In welchem Land lebten im Jahr 2013 127,3 Millionen Menschen?
 Russland
