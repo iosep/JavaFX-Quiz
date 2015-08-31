@@ -1,5 +1,8 @@
 package projekt.model;
 
+import projekt.MainApplication;
+import projekt.controller.ScreenController;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -48,10 +51,10 @@ public class QuestionFileReader {
                     }
                 }
 
-                if (question.isValid()) {
+                if (question.isValid(MainApplication.NUM_QUESTION_POSSIBILITIES)) {
                     catalog.addQuestion(category, question);
                 } else {
-                    throw new IllegalStateException("Question is not valid. Check question file. " + question);
+                    ScreenController.showWarningNotification("Question is not valid. Check question:\n" + question, 0);
                 }
             }
         } while (line != null);

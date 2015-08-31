@@ -5,16 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import projekt.MainApplication;
 import projekt.controller.ScreenController;
-import projekt.model.FileReader;
 import projekt.model.Player;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -24,8 +19,7 @@ import java.util.ResourceBundle;
  */
 public class LoginController implements Initializable {
 
-    private List<String> playerImages;
-    private int playerImageNum;
+    private Player player;
 
     @FXML
     private ImageView playerImgView;
@@ -45,15 +39,14 @@ public class LoginController implements Initializable {
         assert playerNameTextField != null : "fx:id=\"playerNameTextField\" was not injected: check your FXML file 'LoginScreen.fxml'.";
         assert loginButton != null : "fx:id=\"loginButton\" was not injected: check your FXML file 'LoginScreen.fxml'.";
 
-        playerImages = FileReader.getFileList("src/" + MainApplication.PATH_PLAYER_IMAGES);
-        playerImageNum = new Random().nextInt(playerImages.size());
-        nextImageHandler(null);
+        player = new Player(new Random().nextInt(Player.getSizeOfPlayerImages()), "");
+        playerImgView.setImage(playerImgView.getImage());
     }
 
     @FXML
     void nextImageHandler(ActionEvent event) {
-        playerImageNum = ++playerImageNum % playerImages.size();
-        playerImgView.setImage(new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(playerImageNum)));
+        player.setImageNum((player.getImageNum() + 1) % Player.getSizeOfPlayerImages());
+        playerImgView.setImage(player.getImg());
     }
 
     @FXML
@@ -61,22 +54,17 @@ public class LoginController implements Initializable {
         if (playerNameTextField.getText().isEmpty()) {
             ScreenController.showWarningNotification("Please select a username", 1500);
         } else {
-            try {
-                Player player = new Player(playerImgView.getImage(), playerNameTextField.getText());
-                player.setScore(0);
+            player.setScore(0);
 
-                ScreenController.showGameView(player);
+            ScreenController.showGameView(player);
 //                ScreenController.showFindGameView(new Player(playerImgView.getImage(), playerNameTextField.getText()));
-            } catch (IOException e) {
-                ScreenController.showErrorNotification(e.getMessage(), 0);
-            }
         }
     }
 
     @FXML
     void prevImageHandler(ActionEvent event) {
-        playerImageNum = (playerImages.size() + --playerImageNum) % playerImages.size();
-        playerImgView.setImage(new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(playerImageNum)));
+        player.setImageNum((Player.getSizeOfPlayerImages() + player.getImageNum() - 1) % Player.getSizeOfPlayerImages());
+        playerImgView.setImage(player.getImg());
     }
 }
 

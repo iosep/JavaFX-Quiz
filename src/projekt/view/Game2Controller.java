@@ -1,5 +1,6 @@
 package projekt.view;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -77,7 +78,7 @@ public class Game2Controller implements Initializable {
 
         try {
             // fragen einlesen
-            QuestionCatalog questionCatalog = QuestionFileReader.parseQuestions("src/projekt/data/questions.txt");
+            QuestionCatalog questionCatalog = QuestionFileReader.parseQuestions(MainApplication.PATH_QUESTIONS);
             List<String> categories = questionCatalog.getCategories(MainApplication.NUM_QUESTIONS_PER_ROUND);
 
             // prüfen, ob genug fragen vorhanden sind
@@ -87,7 +88,7 @@ public class Game2Controller implements Initializable {
 
             } else {
                 ScreenController.showWarningNotification("Not enough questions found!", 0);
-                ScreenController.showFinalScreen(null);
+                ScreenController.showLoginView();
             }
 
         } catch (IOException e) {
@@ -95,10 +96,24 @@ public class Game2Controller implements Initializable {
         }
     }
 
+    /**
+     * Wählt eine Antwort aus.
+     * Dazu wird der Text der Quelle des ActionEvents auf seine Richtigkeit überprüft.
+     * Wenn das Spiel zuende ist, wird die highscore.txt-View angezeigt.
+     *
+     * @param event ActionEvent vom entsprechenden AnwortButton
+     */
+
     @FXML
-    void chooseAnswerA() {
-        game.chooseAnswer(answerAButton.getText());
-        display();
+    void chooseAnswerHandler(ActionEvent event) {
+        if (!game.isFinished()) {
+            game.chooseAnswer(((Button) event.getSource()).getText());
+            display();
+        }
+
+        if (game.isFinished()) {
+            ScreenController.showFinalScreen(game.getPlayer());
+        }
     }
 
     private void display() {
@@ -116,24 +131,11 @@ public class Game2Controller implements Initializable {
         }
     }
 
-    @FXML
-    void chooseAnswerB() {
-        game.chooseAnswer(answerBButton.getText());
-        display();
-    }
-
-    @FXML
-    void chooseAnswerC() {
-        game.chooseAnswer(answerCButton.getText());
-        display();
-    }
-
-    @FXML
-    void chooseAnswerD() {
-        game.chooseAnswer(answerDButton.getText());
-        display();
-    }
-
+    /**
+     * Initialisiert das Spiel und die View mit den Daten des Spielers.
+     *
+     * @param player Spieler, der das Spiel antritt.
+     */
     public void initPlayer(Player player) {
         game.setPlayer(player);
         playerImgView.setImage(player.getImg());

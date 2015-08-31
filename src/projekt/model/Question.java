@@ -59,6 +59,16 @@ public class Question {
         return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
     }
 
+    /**
+     * Überprüft das Question-Objekt auf seine Richtigkeit und gibt ein boolean zurück.
+     *
+     * @param numPossibilities Gibt die Anzahl der Anwortmöglichkeiten an, die die Frage besitzen darf.
+     * @return True, wenn die Frage valide ist. False, wenn nicht.
+     */
+    public boolean isValid(int numPossibilities) {
+        return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && ANSWERS.size() == 4 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
+    }
+
     public String getQUESTION() {
         return QUESTION;
     }
@@ -119,8 +129,6 @@ public class Question {
      * @return True, wenn Antwort richtig ist. False, wenn nicht.
      */
     public boolean isAnswerCorrect(String answer) {
-
-        System.out.printf("Correct: %s = %s (%s)\n", ANSWERS.get(correctAnswerIndex), answer, answer.equals(ANSWERS.get(correctAnswerIndex)));
         return answer.equals(ANSWERS.get(correctAnswerIndex));
     }
 }

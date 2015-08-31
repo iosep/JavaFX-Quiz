@@ -2,19 +2,35 @@ package projekt.model;
 
 
 import javafx.scene.image.Image;
+import projekt.MainApplication;
+
+import java.util.List;
 
 /**
  * Klasse zum Erstellen eines Spielerobjekts.
  * Sie enthält den Namen, das Bild, die Joker, die Punkte und andere Informationen von Spielern.
  */
 public class Player {
-    private Image img;
+    private static List<String> playerImages = FileReader.getFileList("src/" + MainApplication.PATH_PLAYER_IMAGES);
+    private int imageNum;
     private String name;
     private int score;
-
-    public Player(Image img, String name) {
-        this.img = img;
+    private Image image;
+    public Player(int imageNum, String name) {
         this.name = name;
+        this.imageNum = imageNum;
+        this.image = new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(imageNum));
+    }
+
+    public Player(int imageNum, String name, int score) {
+        this.name = name;
+        this.imageNum = imageNum;
+        this.score = score;
+        this.image = new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(imageNum));
+    }
+
+    public static int getSizeOfPlayerImages() {
+        return playerImages.size();
     }
 
     /**
@@ -23,16 +39,7 @@ public class Player {
      * @return Bild des Spielers.
      */
     public Image getImg() {
-        return img;
-    }
-
-    /**
-     * Setzt das Bild des Spieler.
-     *
-     * @param img Bild, das der Spieler erhalten soll.
-     */
-    public void setImg(Image img) {
-        this.img = img;
+        return image;
     }
 
     /**
@@ -55,5 +62,19 @@ public class Player {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    /**
+     * Gibt die Bildnummer des Spielers zurück.
+     *
+     * @return Bildnummer des Spielers.
+     */
+    public int getImageNum() {
+        return imageNum;
+    }
+
+    public void setImageNum(int imageNum) {
+        this.imageNum = imageNum;
+        this.image = new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(imageNum));
     }
 }

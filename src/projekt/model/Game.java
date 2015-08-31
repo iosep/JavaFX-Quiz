@@ -1,7 +1,6 @@
 package projekt.model;
 
 import projekt.MainApplication;
-import projekt.controller.ScreenController;
 
 import java.util.List;
 import java.util.Random;
@@ -13,7 +12,7 @@ import java.util.Random;
  * - jeder Spielzug enthält ein festgelegtes Zeitlimit
  * - Spieler können verschiedene Joker nutzen: 50:50-Joker, Zeitverlängerungs-Joker, neue-Frage-Joker
  * - Bedingungen für Joker festlegen
- * - für jeden Spieler soll ein Highscore/Punktestand angezeigt werden
+ * - für jeden Spieler soll ein highscore.txt/Punktestand angezeigt werden
  * <p>
  * Created by Scratcherz on 28.07.2015.
  */
@@ -26,10 +25,12 @@ public class Game {
     private List<String> categories;
     private Player player;
     private Random rand;
+    private boolean finished;
 
     public Game() {
         questionNum = 0;
         roundNum = 0;
+        finished = false;
     }
 
     public String getCurrentCategory() {
@@ -71,32 +72,40 @@ public class Game {
 
         if (currentQuestion.isAnswerCorrect(answer)) {
             player.setScore(score + MainApplication.RIGHT_ANSWER_SCORE);
-            updateQuestion();
+            updateStatus();
             return true;
         } else {
             player.setScore(score - MainApplication.WRONG_ANSWER_SCORE);
-            updateQuestion();
+            updateStatus();
             return false;
         }
 
     }
 
-    private void updateQuestion() {
+    /**
+     * Lädt die nächste Frage und Kategorie bzw. beendet das Spiel.
+     * Die Parameter werden in der MainApplication Klasse gesetzt.
+     */
+    private void updateStatus() {
         questionNum++;
 
         if (questionNum % MainApplication.NUM_QUESTIONS_PER_ROUND == 0) {
             roundNum++;
             if (roundNum >= MainApplication.NUM_ROUNDS) {
                 //ENDE
-                ScreenController.showInformationNotification("---ENDE---\nScore: " + player.getScore(), 0);
+                this.finished = true;
             } else {
                 // NEUE RUNDE
                 currentCategory = categories.remove(rand.nextInt(categories.size()));
                 currentQuestion = questionCatalog.getRandomQuestion(currentCategory);
             }
         } else {
-            currentQuestion = questionCatalog.getRandomQuestion(currentCategory);
             // NÄCHSTE FRAGE
+            currentQuestion = questionCatalog.getRandomQuestion(currentCategory);
         }
+    }
+
+    public boolean isFinished() {
+        return finished;
     }
 }
