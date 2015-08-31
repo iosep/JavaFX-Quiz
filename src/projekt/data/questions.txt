@@ -25,12 +25,17 @@ Michaela Schäfer
 2009
 +2010
 2013
-Wie viel US-Dollar kostete ein 30-sekündiger Werbespot während des Superbowls 2015 im American
-#Football?
+#Wie viel US-Dollar kostete ein 30-sekündiger Werbespot während des Superbowls 2015 im American
+Football?
 3 Mio. US-Dollar
 +4,5 Mio. US-Dollar
 700.000 US-Dollar
 1,5 Mio. US-Dollar
+#Wo befindet sich in der Hörspielreihe "Die drei ???" die Zentrale der Detektive?
+Kiesgrube
++Schrottplatz
+Baumhaus
+Waschsalon
 ---Sport
 #In welchem Jahr gewann Hannover 96 zum letzten Mal den DFB Pokal?
 +1992
@@ -47,7 +52,7 @@ Australien
 Roger Federer
 Andy Murray
 Novak Đoković
-Kultur
+---Kultur
 #In welchem Land lebten im Jahr 2013 127,3 Millionen Menschen?
 Russland
 China
@@ -63,3 +68,20 @@ Berliner Hase
 Berliner Esel
 Berliner Vogel
 +Berliner Bär
+#Wie lang war die innerstädtische Grenze zwischen Ost- und West-Berlin?
+155 km
+87 km
+43 km
+104 km
+---Wirtschaft und Politik
+#In welchem Zeitraum war Helmut Kohl Bundeskanzler der Bundesrepublik Deutschland?
++1982 bis 1998
+1980 bis 1998
+1986 bis 1998
+1984 bis 1998
+#Für wie viele Jahre wird der Bundespräsident gewählt?
+3
+4
++5
+8
+
