@@ -161,7 +161,7 @@ public class ScreenController {
      * Lädt die highscore.txt-View in das Hauptfenster.
      */
     public static void showFinalScreen(Player player) {
-        HighscoreController highscoreController = loadSceneToPrimaryStage("highscore.txt");
+        HighscoreController highscoreController = loadSceneToPrimaryStage("Highscore");
         highscoreController.initPlayer(player);
         primaryStage.show();
     }
