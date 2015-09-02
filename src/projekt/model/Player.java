@@ -54,7 +54,7 @@ public class Player {
     /**
      * Gibt den Namen des Spielers zurück.
      *
-     * @param name
+     * @param name Name des Spielers.
      */
     public void setName(String name) {
         this.name = name;

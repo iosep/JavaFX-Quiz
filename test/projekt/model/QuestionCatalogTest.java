@@ -2,9 +2,6 @@ package projekt.model;
 
 import org.junit.Test;
 
-/**
- * Created by haerick on 29.07.15.
- */
 public class QuestionCatalogTest {
 
     @Test

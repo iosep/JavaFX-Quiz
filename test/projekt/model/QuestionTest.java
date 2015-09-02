@@ -7,9 +7,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by haerick on 29.07.15.
- */
 public class QuestionTest {
 
     @Test

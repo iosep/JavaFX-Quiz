@@ -20,9 +20,11 @@ public class DirectoryIO {
         List<String> fileNames = new ArrayList<>();
         File[] files = new File(path).listFiles();
 
-        for (File file : files) {
-            if (file.isFile()) {
-                fileNames.add(file.getName());
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    fileNames.add(file.getName());
+                }
             }
         }
 
