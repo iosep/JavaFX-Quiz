@@ -1,4 +1,4 @@
-package projekt.view;
+package projekt.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

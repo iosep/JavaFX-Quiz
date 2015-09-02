@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Klasse zum Einlesen der Fragen aus einer Datei
  */
-public class QuestionFileReader {
+public class QuestionFileIO {
 
     private static final String CATEGORY_SEPARATOR = "---";
     private static final String QUESTION_SEPARATOR = "#";

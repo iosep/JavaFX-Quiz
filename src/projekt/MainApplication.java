@@ -16,10 +16,11 @@ public class MainApplication extends Application {
     public static final int RIGHT_ANSWER_SCORE = 100;
     public static final int WRONG_ANSWER_SCORE = 50;
     public static final int NUM_QUESTION_POSSIBILITIES = 4;
+    public static final int MAX_HIGHSCORE_SLOTS = 10;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         ScreenController.setPrimaryStage(primaryStage);
-        ScreenController.showLoginView();
+        ScreenController.showLogin();
     }
 }

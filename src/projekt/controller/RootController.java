@@ -1,8 +1,7 @@
-package projekt.view;
+package projekt.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import projekt.controller.ScreenController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +16,7 @@ public class RootController implements Initializable {
 
     @FXML
     void newGameHandler() throws IOException {
-        ScreenController.showLoginView();
+        ScreenController.showLogin();
     }
 
     @FXML

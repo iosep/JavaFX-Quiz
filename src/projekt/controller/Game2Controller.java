@@ -1,4 +1,4 @@
-package projekt.view;
+package projekt.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,11 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import projekt.MainApplication;
-import projekt.controller.ScreenController;
 import projekt.model.Game;
 import projekt.model.Player;
 import projekt.model.QuestionCatalog;
-import projekt.model.QuestionFileReader;
+import projekt.model.QuestionFileIO;
 
 import java.io.IOException;
 import java.net.URL;
@@ -78,7 +77,7 @@ public class Game2Controller implements Initializable {
 
         try {
             // fragen einlesen
-            QuestionCatalog questionCatalog = QuestionFileReader.parseQuestions(MainApplication.PATH_QUESTIONS);
+            QuestionCatalog questionCatalog = QuestionFileIO.parseQuestions(MainApplication.PATH_QUESTIONS);
             List<String> categories = questionCatalog.getCategories(MainApplication.NUM_QUESTIONS_PER_ROUND);
 
             // prüfen, ob genug fragen vorhanden sind
@@ -88,7 +87,7 @@ public class Game2Controller implements Initializable {
 
             } else {
                 ScreenController.showWarningNotification("Not enough questions found!", 0);
-                ScreenController.showLoginView();
+                ScreenController.showLogin();
             }
 
         } catch (IOException e) {
@@ -112,7 +111,10 @@ public class Game2Controller implements Initializable {
         }
 
         if (game.isFinished()) {
-            ScreenController.showFinalScreen(game.getPlayer());
+            for (Button answerButton : answerButtons) {
+                answerButton.setDisable(true);
+            }
+            ScreenController.showHighscore(game.getPlayer());
         }
     }
 

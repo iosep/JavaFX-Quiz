@@ -1,4 +1,4 @@
-package projekt.view;
+package projekt.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import projekt.controller.ScreenController;
 import projekt.model.Player;
 
 import java.net.URL;
@@ -40,7 +39,7 @@ public class LoginController implements Initializable {
         assert loginButton != null : "fx:id=\"loginButton\" was not injected: check your FXML file 'LoginScreen.fxml'.";
 
         player = new Player(new Random().nextInt(Player.getSizeOfPlayerImages()), "");
-        playerImgView.setImage(playerImgView.getImage());
+        playerImgView.setImage(player.getImg());
     }
 
     @FXML
@@ -50,21 +49,22 @@ public class LoginController implements Initializable {
     }
 
     @FXML
+    void prevImageHandler(ActionEvent event) {
+        player.setImageNum((Player.getSizeOfPlayerImages() + player.getImageNum() - 1) % Player.getSizeOfPlayerImages());
+        playerImgView.setImage(player.getImg());
+    }
+
+    @FXML
     void loginHandler(ActionEvent event) {
         if (playerNameTextField.getText().isEmpty()) {
             ScreenController.showWarningNotification("Please select a username", 1500);
         } else {
+            player.setName(playerNameTextField.getText());
             player.setScore(0);
 
-            ScreenController.showGameView(player);
-//                ScreenController.showFindGameView(new Player(playerImgView.getImage(), playerNameTextField.getText()));
+            ScreenController.showGame(player);
+//          ScreenController.showFindGame(new Player(playerImgView.getImage(), playerNameTextField.getText()));
         }
-    }
-
-    @FXML
-    void prevImageHandler(ActionEvent event) {
-        player.setImageNum((Player.getSizeOfPlayerImages() + player.getImageNum() - 1) % Player.getSizeOfPlayerImages());
-        playerImgView.setImage(player.getImg());
     }
 }
 

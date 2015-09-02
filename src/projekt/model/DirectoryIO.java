@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Klasse zum Lesen von Verzeichnissen und Dateien.
  */
-public class FileReader {
+public class DirectoryIO {
 
     /**
      * Liest alle Dateien in einem Verzeichnis ein und gibt die Pfade der Dateien als Liste mit Strings zurück.

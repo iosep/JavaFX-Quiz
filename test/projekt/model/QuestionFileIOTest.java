@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class QuestionFileReaderTest {
+public class QuestionFileIOTest {
 
     @Test
     public void testParseQuestions() throws Exception {
@@ -30,7 +30,7 @@ public class QuestionFileReaderTest {
         q.addAnswer("Schach");
         expected.addQuestion("Sport", q);
 
-        QuestionCatalog result = QuestionFileReader.parseQuestions("test/projekt/data/test-questions.txt");
+        QuestionCatalog result = QuestionFileIO.parseQuestions("test/projekt/data/test-questions.txt");
 
         assertEquals(expected.getQuestion("Sport", 0).toString(), result.getQuestion("Sport", 0).toString());
         assertEquals(expected.getQuestion("Kultur", 0).toString(), result.getQuestion("Kultur", 0).toString());

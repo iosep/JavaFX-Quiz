@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.controller.HighscoreController">
+<VBox alignment="TOP_CENTER" prefHeight="570.0" prefWidth="280.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.controller.HighscoreController">
    <children>
       <Group>
          <children>
@@ -29,7 +29,7 @@
             <Font size="16.0" />
          </font>
          <VBox.margin>
-            <Insets top="20.0" />
+            <Insets top="10.0" />
          </VBox.margin>
       </Text>
       <HBox alignment="CENTER" prefHeight="72.0" prefWidth="300.0">
@@ -61,30 +61,6 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <HBox alignment="CENTER" layoutX="40.0" layoutY="131.0" prefHeight="72.0" prefWidth="300.0">
-         <children>
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="name">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="score">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Text>
-         </children>
-         <padding>
-            <Insets bottom="5.0" top="5.0" />
-         </padding>
-      </HBox>
    </children>
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

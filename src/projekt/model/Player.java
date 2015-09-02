@@ -11,22 +11,21 @@ import java.util.List;
  * Sie enthält den Namen, das Bild, die Joker, die Punkte und andere Informationen von Spielern.
  */
 public class Player {
-    private static List<String> playerImages = FileReader.getFileList("src/" + MainApplication.PATH_PLAYER_IMAGES);
+    private static List<String> playerImages = DirectoryIO.getFileList("src/" + MainApplication.PATH_PLAYER_IMAGES);
     private int imageNum;
     private String name;
     private int score;
     private Image image;
+
     public Player(int imageNum, String name) {
         this.name = name;
-        this.imageNum = imageNum;
-        this.image = new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(imageNum));
+        setImageNum(imageNum);
     }
 
     public Player(int imageNum, String name, int score) {
+        setImageNum(imageNum);
         this.name = name;
-        this.imageNum = imageNum;
         this.score = score;
-        this.image = new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(imageNum));
     }
 
     public static int getSizeOfPlayerImages() {
@@ -49,6 +48,15 @@ public class Player {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Gibt den Namen des Spielers zurück.
+     *
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**

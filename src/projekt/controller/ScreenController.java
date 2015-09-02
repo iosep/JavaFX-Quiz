@@ -3,12 +3,11 @@ package projekt.controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.controlsfx.control.NotificationPane;
 import projekt.MainApplication;
 import projekt.model.Player;
-import projekt.view.FindGameController;
-import projekt.view.Game2Controller;
 
 import java.io.IOException;
 
@@ -17,10 +16,23 @@ public class ScreenController {
     private static NotificationPane notificationPane;
     private static Stage primaryStage;
     private static Stage secondaryStage;
+    private static BorderPane root;
 
-    public static void setPrimaryStage(Stage primaryStage) {
+    public static void setPrimaryStage(Stage primaryStage) throws IOException {
         primaryStage.setTitle(MainApplication.TITLE);
+        root = FXMLLoader.load(MainApplication.class.getResource("view/Root.fxml"));
+        primaryStage.setScene(new Scene(root));
         ScreenController.primaryStage = primaryStage;
+    }
+
+    /**
+     * Shows an error to the user.
+     *
+     * @param message  Warning message.
+     * @param duration Duration in ms. If 0 it is set to indefinitely.
+     */
+    public static void showErrorNotification(String message, double duration) {
+        showNotification(duration, "ERROR: " + message);
     }
 
     /**
@@ -31,6 +43,16 @@ public class ScreenController {
      */
     public static void showWarningNotification(String message, double duration) {
         showNotification(duration, "WARNING: " + message);
+    }
+
+    /**
+     * Shows an information to the user.
+     *
+     * @param message  Warning message.
+     * @param duration Duration in ms. If 0 it is set to indefinitely.
+     */
+    public static void showInformationNotification(String message, double duration) {
+        showNotification(duration, "Information: " + message);
     }
 
     private static void showNotification(double duration, String text) {
@@ -47,24 +69,6 @@ public class ScreenController {
     }
 
     /**
-     * Shows an information to the user.
-     *
-     * @param message  Warning message.
-     * @param duration Duration in ms. If 0 it is set to indefinitely.
-     */
-    public static void showInformationNotification(String message, double duration) {
-        showNotification(duration, "Information: " + message);
-    }
-
-    /**
-     * Lädt die Login-View in das Hauptfenster.
-     */
-    public static void showLoginView() {
-        loadSceneToPrimaryStage("LoginScreen");
-        primaryStage.show();
-    }
-
-    /**
      * Loads an fxml file via the FXMLLoader and wraps the layout in a notification pane to be able to show notifications.
      *
      * @param fxml File name of the fxml file without ".fmlx" suffix.
@@ -73,50 +77,20 @@ public class ScreenController {
      */
     private static <T> T loadSceneToPrimaryStage(String fxml) {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/" + fxml + ".fxml"));
-
         // Wrap layout in notification pane to be able to show notifications
         // source: http://controlsfx.bitbucket.org/org/controlsfx/control/NotificationPane.html
 //        notificationPane = new NotificationPane(fxmlLoader.load());
 //        primaryStage.setScene(new Scene(notificationPane));
-
-        BorderPane root = null;
         try {
             root = FXMLLoader.load(MainApplication.class.getResource("view/Root.fxml"));
             root.setCenter(fxmlLoader.load());
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
-            showErrorNotification("FXML-Datei konnte nicht geladen werden (" + e.getMessage() + ")", 0);
+            showErrorNotification("FXML-Datei konnte nicht geladen werden (" + fxml + ".fxml)", 0);
         }
 
-        return fxmlLoader.<T>getController();
-    }
-
-    /**
-     * Shows an error to the user.
-     *
-     * @param message  Warning message.
-     * @param duration Duration in ms. If 0 it is set to indefinitely.
-     */
-    public static void showErrorNotification(String message, double duration) {
-        showNotification(duration, "ERROR: " + message);
-    }
-
-    /**
-     * Lädt die FindGame-View in das Hauptfenster.
-     */
-    public static void showFindGameView(Player player) {
-        FindGameController findGameController = loadSceneToPrimaryStage("FindGame");
-        findGameController.initPlayer(player);
         primaryStage.show();
-    }
-
-    /**
-     * Zeigt das Fenster "Spielregeln" an.
-     */
-
-    public static void showRules() {
-        loadSceneToSecondaryStage("Rules");
-        secondaryStage.show();
+        return fxmlLoader.<T>getController();
     }
 
     /**
@@ -137,7 +111,32 @@ public class ScreenController {
         } catch (IOException e) {
             showErrorNotification("FXML-Datei konnte nicht geladen werden (" + e.getMessage() + ")", 0);
         }
+
+        secondaryStage.show();
         return fxmlLoader.<T>getController();
+    }
+
+    /**
+     * Lädt die Login-View in das Hauptfenster.
+     */
+    public static void showLogin() {
+        loadSceneToPrimaryStage("LoginScreen");
+    }
+
+    /**
+     * Lädt die FindGame-View in das Hauptfenster.
+     */
+    public static void showFindGame(Player player) {
+        FindGameController findGameController = loadSceneToPrimaryStage("FindGame");
+        findGameController.initPlayer(player);
+    }
+
+    /**
+     * Zeigt das Fenster "Spielregeln" an.
+     */
+    public static void showRules() {
+        loadSceneToSecondaryStage("Rules");
+        secondaryStage.show();
     }
 
     /**
@@ -145,24 +144,22 @@ public class ScreenController {
      */
     public static void showAboutUs() {
         loadSceneToSecondaryStage("AboutUs");
-        secondaryStage.show();
     }
 
     /**
      * Lädt die Spiel-View in das Hauptfenster.
      */
-    public static void showGameView(Player player) {
+    public static void showGame(Player player) {
         Game2Controller gameController = loadSceneToPrimaryStage("Game2");
         gameController.initPlayer(player);
-        primaryStage.show();
     }
 
     /**
      * Lädt die highscore.txt-View in das Hauptfenster.
      */
-    public static void showFinalScreen(Player player) {
-        HighscoreController highscoreController = loadSceneToPrimaryStage("Highscore");
+    public static void showHighscore(Player player) {
+        HighscoreController highscoreController = loadSceneToSecondaryStage("Highscore");
         highscoreController.initPlayer(player);
-        primaryStage.show();
+        highscoreController.initHighscore(secondaryStage.getScene().getRoot());
     }
 }

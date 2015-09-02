@@ -7,11 +7,11 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class FileReaderTest {
+public class DirectoryIOTest {
 
     @Test
     public void testGetFileList() throws Exception {
-        List<String> fileNames = FileReader.getFileList("test/projekt/data/img/player");
+        List<String> fileNames = DirectoryIO.getFileList("test/projekt/data/img/player");
 
         assertNotNull(fileNames);
 
