@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-
-<VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Group>
-         <children>
-            <Text fill="#797575" layoutX="149.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUIZ" textAlignment="CENTER">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-            <Text layoutX="64.0" layoutY="64.0" rotate="-10.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Scratcherz">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-         </children>
-      </Group>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Das &quot;Scratcherz Quiz&quot; ist ein virtuelles Quiz, welches im Rahmen eines Uni-Projekts entstanden ist. Gruppenmitglieder der &quot;Scratcherz&quot; sind: Björn Kuhnert, Gideon O´Donnell, Nils Pinkerneil und Marian Hansing." wrappingWidth="216.13671875" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nach dem Starten des Spiels erscheint der Login-Screen. Hier hat der Spieler die Möglichkeit, seinen Namen einzutragen und sich einen Spiel-Avatar auszuwählen. Bei unserem Quiz werden Fragen zu fünf Kategorien gestellt. Diese sind Technik, Kultur, Sport, Medien/Unterhaltung und Wirtschaft/Politik." wrappingWidth="216.13671875" />
-   </children>
-   <padding>
-      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-   </padding>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="200.0" prefWidth="100.0" spacing="20.0"
+      xmlns="http://javafx.com/javafx/8">
+    <children>
+        <Group>
+            <children>
+                <Text fill="#797575" layoutX="149.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUIZ"
+                      textAlignment="CENTER">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text layoutX="64.0" layoutY="64.0" rotate="-10.5" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Scratcherz">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+            </children>
+        </Group>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Das &quot;Scratcherz Quiz&quot; ist ein virtuelles Quiz, welches im Rahmen eines Uni-Projekts entstanden ist. Gruppenmitglieder der &quot;Scratcherz&quot; sind: Björn Kuhnert, Gideon O´Donnell, Nils Pinkerneil und Marian Hansing."
+              wrappingWidth="216.13671875"/>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Nach dem Starten des Spiels erscheint der Login-Screen. Hier hat der Spieler die Möglichkeit, seinen Namen einzutragen und sich einen Spiel-Avatar auszuwählen. Bei unserem Quiz werden Fragen zu fünf Kategorien gestellt. Diese sind Technik, Kultur, Sport, Medien/Unterhaltung und Wirtschaft/Politik."
+              wrappingWidth="216.13671875"/>
+    </children>
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+    </padding>
 </VBox>

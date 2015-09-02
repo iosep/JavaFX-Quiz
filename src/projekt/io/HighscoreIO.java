@@ -1,6 +1,7 @@
-package projekt.model;
+package projekt.io;
 
 import projekt.MainApplication;
+import projekt.model.Player;
 
 import java.io.*;
 import java.util.Iterator;

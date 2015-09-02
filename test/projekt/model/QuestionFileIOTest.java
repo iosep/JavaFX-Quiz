@@ -1,6 +1,7 @@
 package projekt.model;
 
 import org.junit.Test;
+import projekt.io.QuestionFileIO;
 
 import static org.junit.Assert.assertEquals;
 

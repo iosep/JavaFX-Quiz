@@ -5,7 +5,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
-import projekt.Start;
 
 import java.net.URL;
 import java.util.ResourceBundle;

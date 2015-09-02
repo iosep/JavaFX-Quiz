@@ -10,7 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import projekt.MainApplication;
-import projekt.model.HighscoreIO;
+import projekt.io.HighscoreIO;
 import projekt.model.Player;
 
 import java.io.IOException;

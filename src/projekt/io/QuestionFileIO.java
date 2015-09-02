@@ -1,7 +1,9 @@
-package projekt.model;
+package projekt.io;
 
 import projekt.MainApplication;
 import projekt.controller.ScreenController;
+import projekt.model.Question;
+import projekt.model.QuestionCatalog;
 
 import java.io.BufferedReader;
 import java.io.File;

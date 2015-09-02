@@ -1,7 +1,5 @@
 package projekt.model;
 
-import projekt.MainApplication;
-
 import java.util.*;
 
 /**

@@ -7,10 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import projekt.MainApplication;
+import projekt.io.QuestionFileIO;
 import projekt.model.Game;
 import projekt.model.Player;
 import projekt.model.QuestionCatalog;
-import projekt.model.QuestionFileIO;
 
 import java.io.IOException;
 import java.net.URL;

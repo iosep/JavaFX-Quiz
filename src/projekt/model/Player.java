@@ -3,6 +3,7 @@ package projekt.model;
 
 import javafx.scene.image.Image;
 import projekt.MainApplication;
+import projekt.io.DirectoryIO;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Sie enthält den Namen, das Bild, die Joker, die Punkte und andere Informationen von Spielern.
  */
 public class Player {
-    private static List<String> playerImages = DirectoryIO.getFileList("src/" + MainApplication.PATH_PLAYER_IMAGES);
+    private static List<String> playerImages = DirectoryIO.getFileList("src/" + MainApplication.DIR_PLAYER_IMAGES);
     private int imageNum;
     private String name;
     private int score;
@@ -83,6 +84,6 @@ public class Player {
 
     public void setImageNum(int imageNum) {
         this.imageNum = imageNum;
-        this.image = new Image(MainApplication.PATH_PLAYER_IMAGES + playerImages.get(imageNum));
+        this.image = new Image(MainApplication.DIR_PLAYER_IMAGES + playerImages.get(imageNum));
     }
 }

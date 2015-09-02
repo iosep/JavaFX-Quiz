@@ -3,7 +3,6 @@ package projekt.controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.controlsfx.control.NotificationPane;
 import projekt.MainApplication;
