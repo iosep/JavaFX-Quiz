@@ -87,7 +87,9 @@ public class HighscoreController implements Initializable {
         ImageView playerImg;
         Text playerName;
         Text playerScore;
-        for (Player player : players) {
+        for (int i = 0; i < MainApplication.MAX_HIGHSCORE_SLOTS; i++) {
+            Player player = players.get(i);
+
             // erzeugt eine neue hbox
             scoreEntry = new HBox();
             scoreEntry.setAlignment(Pos.TOP_CENTER);

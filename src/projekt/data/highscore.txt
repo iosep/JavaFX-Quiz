@@ -1,10 +1,10 @@
 8|asdf|50
 9|dffe|50
 7|df|50
+0|sdfd|50
+1|asdfasdf|50
+1|sdfsdfs|50
 1|dffdd|-100
 1|dffdd|-100
 1|dffdd|-100
 7|ffff|-100
-8|fff|-100
-8|rg|-100
-6|fffff|-100
