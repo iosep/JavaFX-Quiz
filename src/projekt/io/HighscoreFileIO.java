@@ -10,7 +10,7 @@ import java.util.LinkedList;
 /**
  * Klasse zum Einlesen des Highscores aus einer Datei.
  */
-public class HighscoreIO {
+public class HighscoreFileIO {
     private static final String SEPARATOR = "|";
 
     public static LinkedList<Player> parseScores(String path) throws IOException {

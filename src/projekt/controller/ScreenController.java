@@ -149,7 +149,7 @@ public class ScreenController {
      * Lädt die Spiel-View in das Hauptfenster.
      */
     public static void showGame(Player player) {
-        Game2Controller gameController = loadSceneToPrimaryStage("Game2");
+        GameController gameController = loadSceneToPrimaryStage("Game");
         gameController.initPlayer(player);
     }
 

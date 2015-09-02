@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Klasse zum Einlesen der Fragen aus einer Datei
@@ -34,6 +35,7 @@ public class QuestionFileIO {
         String line = br.readLine();
         String category = null;
         Question question;
+        int questionNum = 0;
 
         do {
             if (line.startsWith(CATEGORY_SEPARATOR)) {
@@ -55,11 +57,23 @@ public class QuestionFileIO {
 
                 if (question.isValid(MainApplication.NUM_QUESTION_POSSIBILITIES)) {
                     catalog.addQuestion(category, question);
+                    questionNum++;
                 } else {
                     ScreenController.showWarningNotification("Question is not valid. Check question:\n" + question, 0);
                 }
             }
         } while (line != null);
+
+        int categoryNum = catalog.getNumCategories();
+        List<String> categories = catalog.getCategories(MainApplication.NUM_QUESTIONS_PER_ROUND);
+        ScreenController.showInformationNotification("Got " + questionNum + " questions in " + categoryNum + " categories.", 0);
+
+        if (categories.size() < categoryNum) {
+            ScreenController.showInformationNotification("But can only use " + categories.size() + " categories:", 0);
+            for (String c : categories) {
+                ScreenController.showInformationNotification(c, 0);
+            }
+        }
 
         return catalog;
     }

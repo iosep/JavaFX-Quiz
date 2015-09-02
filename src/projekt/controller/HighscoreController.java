@@ -10,7 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import projekt.MainApplication;
-import projekt.io.HighscoreIO;
+import projekt.io.HighscoreFileIO;
 import projekt.model.Player;
 
 import java.io.IOException;
@@ -58,7 +58,7 @@ public class HighscoreController implements Initializable {
      */
     public void initHighscore(Parent root) {
         try {
-            LinkedList<Player> players = HighscoreIO.parseScores(MainApplication.PATH_HIGHSCORE);
+            LinkedList<Player> players = HighscoreFileIO.parseScores(MainApplication.PATH_HIGHSCORE);
 
             boolean added = false;
             for (int i = 0; i < players.size(); i++) {
@@ -74,7 +74,7 @@ public class HighscoreController implements Initializable {
                 players.add(player);
             }
 
-            HighscoreIO.writeScores(MainApplication.PATH_HIGHSCORE, players);
+            HighscoreFileIO.writeScores(MainApplication.PATH_HIGHSCORE, players);
 
             displayHighscore((Pane) root, players);
         } catch (IOException e) {
