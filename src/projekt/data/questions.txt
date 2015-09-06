@@ -49,6 +49,16 @@ Feuerlöscher
 Halogen-Lampe
 +Öltanker
 Steckdose
+#Was ist momentan ein großer Nachteil von E-Autos?
+keine hohe Geschwindigkeit
++nur ca. 100km Reichweite
+sehr teuer
+kein gutes Ansehen
+#Welche bekannte Handymarke verwendet den Fingerabdruck als mögliche Entsperrung des Bildschirms?
+Samsung
+Nokia
++Apple
+Sony Ericsson
 ---Medien und Unterhaltung
 #Wer warb für die Telefon-Auskunft mit dem Slogan „Da werden Sie geholfen“?
 Uli Hoeneß
@@ -127,6 +137,16 @@ Berliner Vogel
 87 km
 +43 km
 104 km
+#Wieso schüttelt man in Asien nicht zur Begrüßung die Hand wie im europäischen Raum?
+Angst vor Bakterien
++zu früher Körperkontakt nicht erwünscht
+offene Hand als mögliche Kampfaufforderung
+zur Differenzierung
+#Worauf legt die Französische Kultur am meisten Wert?
++Fortentwicklung der eigenen Sprache
+Übernahme anderer Kultureigenschaften
+Freundschaft mit Deutschland
+französischen Fußball
 ---Wirtschaft und Politik
 #In welchem Zeitraum war Helmut Kohl Bundeskanzler der Bundesrepublik Deutschland?
 +1982 bis 1998
@@ -138,3 +158,38 @@ Berliner Vogel
 4
 +5
 8
+#Für was steht die Abkürzung NSU?
++Nationalsozialistischer Untergrund
+nationale soziale Union
+Nation sucht uns
+nationale Studie untereinander
+#Was will die Salafisten-Bewegung in Deutschland erreichen?
+Steigerung des Ansehens
+Deutsche Regierung stürzen
++Ur-Islam wiederherstellen
+eigene Fernsehshow promoten
+#Welche Demokratie ist die Älteste seit der Neuzeit?
+Deutschland
+Frankreich
++USA
+Spanien
+#Welches Land ist die weltweit stärkste Wirtschaftsmacht (Stand März 2015)?
+Deutschland
+Frankreich
+China
++USA
+#Welches Mitgliedsland der EU hat die höchste Arbeitslosenquote?
+Zypern
+Spanien
++Griechenland
+Frankreich
+#Welches Land kann einen größeren Marktanteil an Öl gewinnen, wenn die Preise weiter sinken und Förderfirmen aufgeben?
+USA
++Saudi Arabien
+England
+Russland
+#Was ist ein großes Problem beim starken Wirtschaftswachstum in Asien?
++Umweltprobleme
+Nur der Staat profitiert
+Wirtschaftliche Monopole
+Globalisierung asiatischer Arbeitsplätze
