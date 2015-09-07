@@ -19,6 +19,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Controller für die Highscores.
+ */
 public class HighscoreController implements Initializable {
 
     @FXML
@@ -78,7 +81,7 @@ public class HighscoreController implements Initializable {
 
             displayHighscore((Pane) root, players);
         } catch (IOException e) {
-            ScreenController.showErrorNotification("Fehler beim Einlesen der Highscore", 0);
+            ScreenController.showErrorNotification("Fehler beim Einlesen der Highscore");
         }
     }
 

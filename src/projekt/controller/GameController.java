@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * enthält Regeln und Informationen des Spiels
+ * Controller für das Spiel.
  */
 public class GameController implements Initializable {
 
@@ -54,8 +54,8 @@ public class GameController implements Initializable {
     private Button[] answerButtons;
 
     /**
-     * Constructor of game controller class.
-     * Is called before initialize() method.
+     * Konstruktor des GameControllers.
+     * Wird vor der Methode initialize aufgerufen.
      */
     public GameController() {
         game = new Game();
@@ -91,7 +91,7 @@ public class GameController implements Initializable {
             }
 
         } catch (IOException e) {
-            ScreenController.showErrorNotification(e.getMessage(), 0);
+            ScreenController.showErrorNotification(e.getMessage());
         }
     }
 
@@ -102,7 +102,6 @@ public class GameController implements Initializable {
      *
      * @param event ActionEvent vom entsprechenden AnwortButton
      */
-
     @FXML
     void chooseAnswerHandler(ActionEvent event) {
         if (!game.isFinished()) {
