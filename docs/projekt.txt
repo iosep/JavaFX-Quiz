@@ -36,5 +36,8 @@ uns dagegen entschieden, weil unser Quiz für PC/Laptop vorgesehen ist und dort 
 besser passt. Da wir aber eine Highscore-Liste eingerichtet haben, können sich Spieler dort mit ihren erreichten
 Punktzahlen verewigen. In dieser Highscore-Liste werden die 10 besten Punktzahlen angezeigt.
 
+Das gesamte Projekt haben wir mit dem Programm IntelliJ IDEA bearbeitet, nachdem wir mehrere Anwendungen ausprobiert
+haben. Die GUI ist mit JavaFX-SceneBuilder gestaltet worden.
+
 
 
