@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
-            fx:controller="projekt.controller.RootController">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.controller.RootController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
-            <Menu mnemonicParsing="false" text="Spiel">
-                <MenuItem mnemonicParsing="false" onAction="#newGameHandler" text="Neues Spiel"/>
-                <MenuItem mnemonicParsing="false" onAction="#saveGameHandler" text="Speichern"/>
-                <SeparatorMenuItem mnemonicParsing="false"/>
-                <MenuItem mnemonicParsing="false" onAction="#quitGameHandler" text="Beenden"/>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Hilfe">
-                <MenuItem mnemonicParsing="false" onAction="#showRulesHandler" text="Spielregeln"/>
-                <MenuItem mnemonicParsing="false" onAction="#aboutUsHandler" text="Über uns"/>
-            </Menu>
+           <menus>
+               <Menu mnemonicParsing="false" text="Spiel">
+                  <items>
+                      <MenuItem mnemonicParsing="false" onAction="#newGameHandler" text="Neues Spiel" />
+                      <MenuItem mnemonicParsing="false" onAction="#saveGameHandler" text="Speichern" />
+                  <MenuItem mnemonicParsing="false" text="Highscore zurücksetzen" />
+                      <SeparatorMenuItem mnemonicParsing="false" />
+                      <MenuItem mnemonicParsing="false" onAction="#quitGameHandler" text="Beenden" />
+                  </items>
+               </Menu>
+               <Menu mnemonicParsing="false" text="Hilfe">
+                  <items>
+                      <MenuItem mnemonicParsing="false" onAction="#showRulesHandler" text="Spielregeln" />
+                      <MenuItem mnemonicParsing="false" onAction="#aboutUsHandler" text="Über uns" />
+                  </items>
+               </Menu>
+           </menus>
         </MenuBar>
     </top>
 </BorderPane>
