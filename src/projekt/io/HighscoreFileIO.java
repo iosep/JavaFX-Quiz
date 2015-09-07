@@ -59,14 +59,16 @@ public class HighscoreFileIO {
         File highscoreFile = new File(MainApplication.PATH_HIGHSCORE);
         BufferedWriter bw = new BufferedWriter(new FileWriter(highscoreFile, false));
 
-        int i = 0;
-        Iterator<Player> playerIterator = players.iterator();
-        Player player;
-        while (i < MainApplication.MAX_HIGHSCORE_SLOTS && playerIterator.hasNext()) {
-            player = playerIterator.next();
-            bw.write(player.getImageNum() + "|" + player.getName() + "|" + player.getScore());
-            bw.newLine();
-            i++;
+        if (players != null) {
+            int i = 0;
+            Iterator<Player> playerIterator = players.iterator();
+            Player player;
+            while (i < MainApplication.MAX_HIGHSCORE_SLOTS && playerIterator.hasNext()) {
+                player = playerIterator.next();
+                bw.write(player.getImageNum() + "|" + player.getName() + "|" + player.getScore());
+                bw.newLine();
+                i++;
+            }
         }
 
         bw.close();

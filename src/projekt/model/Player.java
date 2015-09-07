@@ -19,8 +19,8 @@ public class Player {
 
     /**
      * Erstellt einen Spieler mit Namen und Bild.
-     *  @param imageNum Bildnummer des Spielers.
      *
+     * @param imageNum Bildnummer des Spielers.
      */
     public Player(int imageNum) {
         this.name = "";

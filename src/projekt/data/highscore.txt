@@ -1,3 +1,4 @@
-2|Marian|1050
-6|Marian|300
-9|Marian|150
+1|Marian|150
+2|Björn|150
+3|Gideon|150
+4|Nils|150

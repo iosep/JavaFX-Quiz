@@ -142,14 +142,15 @@ public class GameController implements Initializable {
                         }
                         isAnswerChoosen = false;
                         display();
+
+                        if (game.isFinished()) {
+                            disableAnswerButtons(true);
+                            ScreenController.showHighscore(game.getPlayer());
+                        }
                     }));
             timeline.play();
         }
 
-        if (game.isFinished()) {
-            disableAnswerButtons(true);
-            ScreenController.showHighscore(game.getPlayer());
-        }
     }
 
     private void disableAnswerButtons(boolean value) {

@@ -2,7 +2,9 @@ package projekt.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import projekt.io.HighscoreFileIO;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,6 +40,14 @@ public class RootController implements Initializable {
     @FXML
     void quitGameHandler() {
         System.exit(0);
+    }
+
+    /**
+     * Setzt die Highscore-Liste zurück.
+     */
+    @FXML
+    void resetHighscoreHandler() throws IOException {
+        HighscoreFileIO.writeScores(null);
     }
 
     /**

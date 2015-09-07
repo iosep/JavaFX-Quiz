@@ -90,7 +90,8 @@ public class HighscoreController implements Initializable {
         ImageView playerImg;
         Text playerName;
         Text playerScore;
-        for (int i = 0; i < MainApplication.MAX_HIGHSCORE_SLOTS; i++) {
+        int i = 0;
+        while (i < MainApplication.MAX_HIGHSCORE_SLOTS && i < players.size()) {
             Player player = players.get(i);
 
             // erzeugt eine neue hbox
@@ -116,6 +117,8 @@ public class HighscoreController implements Initializable {
 
             // fügt den eintrag in der highscoreliste hinzu
             root.getChildren().add(scoreEntry);
+
+            i++;
         }
     }
 }
