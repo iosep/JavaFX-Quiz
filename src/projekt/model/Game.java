@@ -6,15 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * enthält Informationen über die Funktionsweise des Spiels.
- * - Spieler sind abwechselnd an der Reihe
- * - pro Spiel gibt es 6 Runden, in jeder Runde werden 3 Fragen zu einer vorher ausgewählten Kategorie gestellt
- * - jeder Spielzug enthält ein festgelegtes Zeitlimit
- * - Spieler können verschiedene Joker nutzen: 50:50-Joker, Zeitverlängerungs-Joker, neue-Frage-Joker
- * - Bedingungen für Joker festlegen
- * - für jeden Spieler soll ein highscore.txt/Punktestand angezeigt werden
- * <p>
- * Created by Scratcherz on 28.07.2015.
+ * Klasse zum Erstellen eines Spiels.
  */
 public class Game {
     private String currentCategory;
@@ -27,20 +19,38 @@ public class Game {
     private Random rand;
     private boolean finished;
 
+    /**
+     * Erstellt ein neues Spiel.
+     */
     public Game() {
         questionNum = 0;
         roundNum = 0;
         finished = false;
     }
 
+    /**
+     * Gibt die aktuelle Kategorie zurück.
+     *
+     * @return Aktuelle Kategorie als String.
+     */
     public String getCurrentCategory() {
         return currentCategory;
     }
 
+    /**
+     * Gibt die aktuelle Frage zurück.
+     *
+     * @return Aktuelle Frage als Question-Objekt zurück.
+     */
     public Question getCurrentQuestion() {
         return currentQuestion;
     }
 
+    /**
+     * Setzt einen Fragekatalog.
+     *
+     * @param questionCatalog QuestionCatalog für dieses Spiel.
+     */
     public void setQuestionCatalog(QuestionCatalog questionCatalog) {
         this.questionCatalog = questionCatalog;
         rand = new Random();
@@ -48,14 +58,29 @@ public class Game {
         currentQuestion = questionCatalog.getRandomQuestion(currentCategory);
     }
 
+    /**
+     * Setzt eine Liste mit möglichen Kategorien für dieses Spiel.
+     *
+     * @param categories Liste mit Kategorien als String.
+     */
     public void setCategories(List<String> categories) {
         this.categories = categories;
     }
 
+    /**
+     * Gibt den Spieler zurück, der dieses Spiel spielt.
+     *
+     * @return Player-Object des aktuellen Spielers.
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Setzt einen Spieler für dieses Spiel.
+     *
+     * @param player Player-Object, der das Spiel spielen soll.
+     */
     public void setPlayer(Player player) {
         this.player = player;
     }
@@ -75,7 +100,7 @@ public class Game {
             updateStatus();
             return true;
         } else {
-            player.setScore(score - MainApplication.WRONG_ANSWER_SCORE);
+            player.setScore(score + MainApplication.WRONG_ANSWER_SCORE);
             updateStatus();
             return false;
         }
@@ -84,7 +109,7 @@ public class Game {
 
     /**
      * Lädt die nächste Frage und Kategorie bzw. beendet das Spiel.
-     * Die Parameter werden in der MainApplication Klasse gesetzt.
+     * Die Parameter dazu werden in der MainApplication Klasse gesetzt.
      */
     private void updateStatus() {
         questionNum++;
@@ -105,6 +130,11 @@ public class Game {
         }
     }
 
+    /**
+     * Gibt zurück, ob das Spiel beendet ist oder nicht.
+     *
+     * @return True, falls das Spiel beendet ist, false, falls nicht.
+     */
     public boolean isFinished() {
         return finished;
     }

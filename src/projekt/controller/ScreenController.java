@@ -10,6 +10,9 @@ import projekt.model.Player;
 
 import java.io.IOException;
 
+/**
+ * Controller zum Verwalten der Fenster.
+ */
 public class ScreenController {
 
     private static NotificationPane notificationPane;
@@ -25,67 +28,52 @@ public class ScreenController {
     }
 
     /**
-     * Shows an error to the user.
+     * Zeigt dem Benutzer eine Fehlermeldung an.
      *
-     * @param message  Warning message.
-     * @param duration Duration in ms. If 0 it is set to indefinitely.
+     * @param message Anzuzeigende Nachricht.
      */
-    public static void showErrorNotification(String message, double duration) {
-        showNotification(duration, "ERROR: " + message);
+    public static void showErrorNotification(String message) {
+        showNotification("ERROR: " + message);
     }
 
     /**
-     * Shows a warning to the user.
+     * Zeigt dem Benutzer eine Warnung an.
      *
-     * @param message  Warning message.
-     * @param duration Duration in ms. If 0 it is set to indefinitely.
+     * @param message Anzuzeigende Nachricht.
      */
-    public static void showWarningNotification(String message, double duration) {
-        showNotification(duration, "WARNING: " + message);
+    public static void showWarningNotification(String message) {
+        showNotification("WARNING: " + message);
     }
 
     /**
-     * Shows an information to the user.
+     * Zeigt dem Benutzer eine Information an.
      *
-     * @param message  Warning message.
-     * @param duration Duration in ms. If 0 it is set to indefinitely.
+     * @param message Anzuzeigende Nachricht.
      */
-    public static void showInformationNotification(String message, double duration) {
-        showNotification(duration, "Information: " + message);
+    public static void showInformationNotification(String message) {
+        showNotification("Information: " + message);
     }
 
-    private static void showNotification(double duration, String text) {
+    private static void showNotification(String text) {
         System.out.println(text);
-/*
-        if (duration > 0) {
-            Timeline timeline = new Timeline(new KeyFrame(
-                    Duration.millis(duration),
-                    ae -> notificationPane.hide()));
-            timeline.play();
-        }
-        notificationPane.show(text);
-*/
     }
 
     /**
-     * Loads an fxml file via the FXMLLoader and wraps the layout in a notification pane to be able to show notifications.
+     * Lädt eine fxml Datei mithilfe des FXMLLoaders und bettet sie in das Root-layout ein.
      *
-     * @param fxml File name of the fxml file without ".fmlx" suffix.
-     * @param <T>  Type of controller
-     * @return Controller of the fxml file.
+     * @param fxml Dateiname der zu ladenden fxml-Datei, ohne ".fxml"-Suffix.
+     * @param <T>  Controllerklasse.
+     * @return Controller der fxml-Datei.
      */
     private static <T> T loadSceneToPrimaryStage(String fxml) {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/" + fxml + ".fxml"));
-        // Wrap layout in notification pane to be able to show notifications
-        // source: http://controlsfx.bitbucket.org/org/controlsfx/control/NotificationPane.html
-//        notificationPane = new NotificationPane(fxmlLoader.load());
-//        primaryStage.setScene(new Scene(notificationPane));
+
         try {
             root = FXMLLoader.load(MainApplication.class.getResource("view/Root.fxml"));
             root.setCenter(fxmlLoader.load());
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
-            showErrorNotification("FXML-Datei konnte nicht geladen werden (" + fxml + ".fxml)", 0);
+            showErrorNotification("FXML-Datei konnte nicht geladen werden (" + fxml + ".fxml)");
         }
 
         primaryStage.show();
@@ -93,11 +81,11 @@ public class ScreenController {
     }
 
     /**
-     * Loads an fxml file via the FXMLLoader and wraps the layout in a notification pane to be able to show notifications.
+     * Lädt eine fxml Datei mithilfe des FXMLLoaders und zeigt sie in einem zweiten Fenster an.
      *
-     * @param fxml File name of the fxml file without ".fmlx" suffix.
-     * @param <T>  Type of controller
-     * @return Controller of the fxml file.
+     * @param fxml Dateiname der zu ladenden fxml-Datei, ohne ".fxml"-Suffix.
+     * @param <T>  Controllerklasse.
+     * @return Controller der fxml-Datei.
      */
     private static <T> T loadSceneToSecondaryStage(String fxml) {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/" + fxml + ".fxml"));
@@ -108,7 +96,7 @@ public class ScreenController {
         try {
             secondaryStage.setScene(new Scene(fxmlLoader.load()));
         } catch (IOException e) {
-            showErrorNotification("FXML-Datei konnte nicht geladen werden (" + e.getMessage() + ")", 0);
+            showErrorNotification("FXML-Datei konnte nicht geladen werden (" + e.getMessage() + ")");
         }
 
         secondaryStage.show();
@@ -120,14 +108,6 @@ public class ScreenController {
      */
     public static void showLogin() {
         loadSceneToPrimaryStage("LoginScreen");
-    }
-
-    /**
-     * Lädt die FindGame-View in das Hauptfenster.
-     */
-    public static void showFindGame(Player player) {
-        FindGameController findGameController = loadSceneToPrimaryStage("FindGame");
-        findGameController.initPlayer(player);
     }
 
     /**
@@ -154,7 +134,7 @@ public class ScreenController {
     }
 
     /**
-     * Lädt die highscore.txt-View in das Hauptfenster.
+     * Zeigt die Highscores in einem zweiten Fenster an.
      */
     public static void showHighscore(Player player) {
         HighscoreController highscoreController = loadSceneToSecondaryStage("Highscore");

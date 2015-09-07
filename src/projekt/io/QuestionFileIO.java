@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Klasse zum Einlesen der Fragen aus einer Datei
+ * Klasse zum Einlesen der Fragen aus einer Datei.
  */
 public class QuestionFileIO {
 
@@ -21,15 +21,15 @@ public class QuestionFileIO {
     private static final String CORRECT_ANSWER_INDICATOR = "+";
 
     /**
-     * Parses a question file and returns a questionCatalog
+     * Liest alle Fragen aus der fragen-Datei und gibt dementsprechend einen QuestionCatalog zurück.
      *
-     * @param path Path to question file.
-     * @return QuestionCatalog with question objects.
+     * @return QuestionCatalog mit Question-Objeken.
+     * @throws IOException wenn die fragen-Datei nicht geladen werden kann.
      */
-    public static QuestionCatalog parseQuestions(String path) throws IOException {
+    public static QuestionCatalog parseQuestions() throws IOException {
         QuestionCatalog catalog = new QuestionCatalog();
 
-        File questionFile = new File(path);
+        File questionFile = new File(MainApplication.PATH_QUESTIONS);
         BufferedReader br = new BufferedReader(new FileReader(questionFile));
 
         String line = br.readLine();
@@ -55,23 +55,23 @@ public class QuestionFileIO {
                     }
                 }
 
-                if (question.isValid(MainApplication.NUM_QUESTION_POSSIBILITIES)) {
+                if (question.isValid()) {
                     catalog.addQuestion(category, question);
                     questionNum++;
                 } else {
-                    ScreenController.showWarningNotification("Question is not valid. Check question:\n" + question, 0);
+                    ScreenController.showWarningNotification("Question is not valid. Check question:\n" + question);
                 }
             }
         } while (line != null);
 
         int categoryNum = catalog.getNumCategories();
-        List<String> categories = catalog.getCategories(MainApplication.NUM_QUESTIONS_PER_ROUND);
-        ScreenController.showInformationNotification("Got " + questionNum + " questions in " + categoryNum + " categories.", 0);
+        List<String> categories = catalog.getCategories();
+        ScreenController.showInformationNotification("Got " + questionNum + " questions in " + categoryNum + " categories.");
 
         if (categories.size() < categoryNum) {
-            ScreenController.showInformationNotification("But can only use " + categories.size() + " categories:", 0);
+            ScreenController.showInformationNotification("But can only use " + categories.size() + " categories:");
             for (String c : categories) {
-                ScreenController.showInformationNotification(c, 0);
+                ScreenController.showInformationNotification(c);
             }
         }
 

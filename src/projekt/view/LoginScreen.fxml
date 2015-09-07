@@ -8,82 +8,69 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity"
       prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
       fx:controller="projekt.controller.LoginController">
-    <children>
-        <Group layoutX="-47.0" layoutY="16.0">
-            <children>
-                <Text fill="#797575" layoutX="259.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUIZ"
-                      textAlignment="CENTER">
-                    <font>
-                        <Font name="Droid Sans" size="34.0"/>
-                    </font>
-                </Text>
-                <Text layoutX="64.0" layoutY="64.0" rotate="-10.5" strokeType="OUTSIDE" strokeWidth="0.0"
-                      text="Scratcherz">
-                    <font>
-                        <Font size="47.0"/>
-                    </font>
-                </Text>
-            </children>
-        </Group>
-        <VBox alignment="TOP_CENTER" layoutX="135.0" layoutY="157.0" prefHeight="210.0" prefWidth="330.0">
-            <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wer bist du?" textAlignment="CENTER">
-                    <font>
-                        <Font size="24.0"/>
-                    </font>
-                    <VBox.margin>
-                        <Insets/>
-                    </VBox.margin>
-                </Text>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                    <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                            <children>
-                                <ImageView fx:id="playerImgView" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true"
-                                           preserveRatio="true">
-                                    <image>
-                                        <Image url="@../data/img/player/Avengers-Agent-Coulson-icon.png"/>
-                                    </image>
-                                </ImageView>
-                                <HBox prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#prevImageHandler" prefHeight="50.0"
-                                                prefWidth="5.0" text="&lt;" textOverrun="CLIP">
-                                            <HBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                                            </HBox.margin>
-                                        </Button>
-                                        <Button mnemonicParsing="false" onAction="#nextImageHandler" prefHeight="50.0"
-                                                prefWidth="5.0" text="&gt;" textOverrun="CLIP">
-                                            <HBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                                            </HBox.margin>
-                                        </Button>
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-                        <TextField fx:id="playerNameTextField" onAction="#loginHandler" prefHeight="25.0"
-                                   prefWidth="218.0" promptText="Username">
-                            <HBox.margin>
-                                <Insets bottom="30.0" left="5.0"/>
-                            </HBox.margin>
-                        </TextField>
-                    </children>
-                    <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                    </VBox.margin>
+    <Group layoutX="-47.0" layoutY="16.0">
+        <Text fill="#797575" layoutX="259.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUIZ"
+              textAlignment="CENTER">
+            <font>
+                <Font name="Droid Sans" size="34.0"/>
+            </font>
+        </Text>
+        <Text layoutX="64.0" layoutY="64.0" rotate="-10.5" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Scratcherz">
+            <font>
+                <Font size="47.0"/>
+            </font>
+        </Text>
+    </Group>
+    <VBox alignment="TOP_CENTER" layoutX="135.0" layoutY="157.0" prefHeight="210.0" prefWidth="330.0">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wer bist du?" textAlignment="CENTER">
+            <font>
+                <Font size="24.0"/>
+            </font>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </Text>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+                <ImageView fx:id="playerImgView" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <Image url="@../data/img/player/Avengers-Agent-Coulson-icon.png"/>
+                </ImageView>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <Button mnemonicParsing="false" onAction="#prevImageHandler" prefHeight="50.0"
+                            prefWidth="5.0" text="&lt;" textOverrun="CLIP">
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#nextImageHandler" prefHeight="50.0"
+                            prefWidth="5.0" text="&gt;" textOverrun="CLIP">
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        </HBox.margin>
+                    </Button>
                 </HBox>
-                <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#loginHandler"
-                        prefHeight="35.0" prefWidth="100.0" text="Login" textAlignment="CENTER">
-                    <VBox.margin>
-                        <Insets top="10.0"/>
-                    </VBox.margin>
-                </Button>
-            </children>
-        </VBox>
-    </children>
+            </VBox>
+            <TextField fx:id="playerNameTextField" onAction="#loginHandler" prefHeight="25.0"
+                       prefWidth="218.0" promptText="Username">
+                <HBox.margin>
+                    <Insets bottom="30.0" left="5.0"/>
+                </HBox.margin>
+            </TextField>
+        </HBox>
+        <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#loginHandler"
+                prefHeight="35.0" prefWidth="100.0" text="Login" textAlignment="CENTER">
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+        </Button>
+    </VBox>
 </Pane>

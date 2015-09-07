@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class QuestionCatalog {
 
-    public Map<String, List<Question>> catalog;
+    private final Map<String, List<Question>> catalog;
 
     /**
      * Konstruktor für einen leeren Fragenkatalog.
@@ -74,14 +74,13 @@ public class QuestionCatalog {
     /**
      * Gibt alle Kategorien des Katalogs zurück, die eine entsprechende Anzahl an Fragen besitzen.
      *
-     * @param numQuestions Mindestanzahl an Fragen, die eine Kategorie haben muss.
      * @return Kategorien als String List.
      */
-    public List<String> getCategories(int numQuestions) {
+    public List<String> getCategories() {
         List<String> result = new ArrayList<>(catalog.size());
 
         for (String s : catalog.keySet()) {
-            if (catalog.get(s).size() >= numQuestions) {
+            if (catalog.get(s).size() >= projekt.MainApplication.NUM_QUESTIONS_PER_ROUND) {
                 result.add(s);
             }
         }

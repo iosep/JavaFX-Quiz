@@ -8,27 +8,43 @@ import projekt.io.DirectoryIO;
 import java.util.List;
 
 /**
- * Klasse zum Erstellen eines Spielerobjekts.
- * Sie enthält den Namen, das Bild, die Joker, die Punkte und andere Informationen von Spielern.
+ * Klasse zum Erstellen eines Spielers.
  */
 public class Player {
-    private static List<String> playerImages = DirectoryIO.getFileList("src/" + MainApplication.DIR_PLAYER_IMAGES);
+    private static final List<String> playerImages = DirectoryIO.getFileList("src/" + MainApplication.DIR_PLAYER_IMAGES);
     private int imageNum;
     private String name;
     private int score;
     private Image image;
 
-    public Player(int imageNum, String name) {
-        this.name = name;
+    /**
+     * Erstellt einen Spieler mit Namen und Bild.
+     *  @param imageNum Bildnummer des Spielers.
+     *
+     */
+    public Player(int imageNum) {
+        this.name = "";
         setImageNum(imageNum);
     }
 
+    /**
+     * Erstellt einen Spieler mit Namen, Bild und Punktezahl.
+     *
+     * @param imageNum Bildnummer des Spielers.
+     * @param name     Name des Spielers.
+     * @param score    Punktezahl des Spielers.
+     */
     public Player(int imageNum, String name, int score) {
-        setImageNum(imageNum);
         this.name = name;
         this.score = score;
+        setImageNum(imageNum);
     }
 
+    /**
+     * Gibt die Anzahl der Spieleravatare zurück, die geladen wurden.
+     *
+     * @return Anzahl der Bilder.
+     */
     public static int getSizeOfPlayerImages() {
         return playerImages.size();
     }
@@ -52,7 +68,7 @@ public class Player {
     }
 
     /**
-     * Gibt den Namen des Spielers zurück.
+     * Setzt den Namen des Spielers.
      *
      * @param name Name des Spielers.
      */
@@ -69,6 +85,11 @@ public class Player {
         return score;
     }
 
+    /**
+     * Setzt die Punktezahl für den Spieler.
+     *
+     * @param score Punktezahl des Spielers.
+     */
     public void setScore(int score) {
         this.score = score;
     }
@@ -82,6 +103,11 @@ public class Player {
         return imageNum;
     }
 
+    /**
+     * Setzt die Bildnummer des Spielers.
+     *
+     * @param imageNum Bildnummer des Spielers.
+     */
     public void setImageNum(int imageNum) {
         this.imageNum = imageNum;
         this.image = new Image(MainApplication.DIR_PLAYER_IMAGES + playerImages.get(imageNum));

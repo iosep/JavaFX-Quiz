@@ -1,6 +1,5 @@
 package projekt.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,7 +13,7 @@ import java.util.ResourceBundle;
 
 
 /**
- * enthält Regeln und Informationen des Spiels
+ * Controller für den Login.
  */
 public class LoginController implements Initializable {
 
@@ -38,32 +37,40 @@ public class LoginController implements Initializable {
         assert playerNameTextField != null : "fx:id=\"playerNameTextField\" was not injected: check your FXML file 'LoginScreen.fxml'.";
         assert loginButton != null : "fx:id=\"loginButton\" was not injected: check your FXML file 'LoginScreen.fxml'.";
 
-        player = new Player(new Random().nextInt(Player.getSizeOfPlayerImages()), "");
+        player = new Player(new Random().nextInt(Player.getSizeOfPlayerImages()));
         playerImgView.setImage(player.getImg());
     }
 
+    /**
+     * Schaltet auf das nächste Bild um.
+     */
     @FXML
-    void nextImageHandler(ActionEvent event) {
+    void nextImageHandler() {
         player.setImageNum((player.getImageNum() + 1) % Player.getSizeOfPlayerImages());
         playerImgView.setImage(player.getImg());
     }
 
+    /**
+     * Schaltet auf das vorherige Bild um.
+     */
     @FXML
-    void prevImageHandler(ActionEvent event) {
+    void prevImageHandler() {
         player.setImageNum((Player.getSizeOfPlayerImages() + player.getImageNum() - 1) % Player.getSizeOfPlayerImages());
         playerImgView.setImage(player.getImg());
     }
 
+    /**
+     * Erstellt das Spieler-Objekt und übergibt es an den ScreenController, um das Spiel zu starten.
+     */
     @FXML
-    void loginHandler(ActionEvent event) {
+    void loginHandler() {
         if (playerNameTextField.getText().isEmpty()) {
-            ScreenController.showWarningNotification("Please select a username", 1500);
+            ScreenController.showWarningNotification("Please select a username");
         } else {
             player.setName(playerNameTextField.getText());
             player.setScore(0);
 
             ScreenController.showGame(player);
-//          ScreenController.showFindGame(new Player(playerImgView.getImage(), playerNameTextField.getText()));
         }
     }
 }

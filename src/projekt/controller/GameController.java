@@ -18,11 +18,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * enthält Regeln und Informationen des Spiels
+ * Controller für das Spiel.
  */
 public class GameController implements Initializable {
 
-    Game game;
+    private final Game game;
 
     @FXML
     private Label playerNameText;
@@ -54,8 +54,8 @@ public class GameController implements Initializable {
     private Button[] answerButtons;
 
     /**
-     * Constructor of game controller class.
-     * Is called before initialize() method.
+     * Konstruktor des GameControllers.
+     * Wird vor der Methode initialize aufgerufen.
      */
     public GameController() {
         game = new Game();
@@ -77,8 +77,8 @@ public class GameController implements Initializable {
 
         try {
             // fragen einlesen
-            QuestionCatalog questionCatalog = QuestionFileIO.parseQuestions(MainApplication.PATH_QUESTIONS);
-            List<String> categories = questionCatalog.getCategories(MainApplication.NUM_QUESTIONS_PER_ROUND);
+            QuestionCatalog questionCatalog = QuestionFileIO.parseQuestions();
+            List<String> categories = questionCatalog.getCategories();
 
             // prüfen, ob genug fragen vorhanden sind
             if (categories.size() >= MainApplication.NUM_ROUNDS) {
@@ -86,12 +86,12 @@ public class GameController implements Initializable {
                 game.setQuestionCatalog(questionCatalog);
 
             } else {
-                ScreenController.showWarningNotification("Not enough questions found!", 0);
+                ScreenController.showWarningNotification("Not enough questions found!");
                 ScreenController.showLogin();
             }
 
         } catch (IOException e) {
-            ScreenController.showErrorNotification(e.getMessage(), 0);
+            ScreenController.showErrorNotification(e.getMessage());
         }
     }
 
@@ -102,7 +102,6 @@ public class GameController implements Initializable {
      *
      * @param event ActionEvent vom entsprechenden AnwortButton
      */
-
     @FXML
     void chooseAnswerHandler(ActionEvent event) {
         if (!game.isFinished()) {

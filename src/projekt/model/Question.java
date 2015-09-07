@@ -60,19 +60,19 @@ public class Question {
     }
 
     /**
-     * Überprüft das Question-Objekt auf seine Richtigkeit und gibt ein boolean zurück.
+     * Gibt die Frage als String zurück.
      *
-     * @param numPossibilities Gibt die Anzahl der Anwortmöglichkeiten an, die die Frage besitzen darf.
-     * @return True, wenn die Frage valide ist. False, wenn nicht.
+     * @return Fragestring.
      */
-    public boolean isValid(int numPossibilities) {
-        return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && ANSWERS.size() == 4 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
-    }
-
     public String getQUESTION() {
         return QUESTION;
     }
 
+    /**
+     * Gibt das Frage-Objekt als formatierten String aus.
+     *
+     * @return Formatierter String.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
