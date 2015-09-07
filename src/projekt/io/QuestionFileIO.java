@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Klasse zum Einlesen der Fragen aus einer Datei
+ * Klasse zum Einlesen der Fragen aus einer Datei.
  */
 public class QuestionFileIO {
 
@@ -21,10 +21,11 @@ public class QuestionFileIO {
     private static final String CORRECT_ANSWER_INDICATOR = "+";
 
     /**
-     * Parses a question file and returns a questionCatalog
+     * Liest alle Fragen aus der fragen-Datei und gibt dementsprechend einen QuestionCatalog zurück.
      *
-     * @param path Path to question file.
-     * @return QuestionCatalog with question objects.
+     * @param path Pfad zur fragen-Datei.
+     * @return QuestionCatalog mit Question-Objeken.
+     * @throws IOException wenn die fragen-Datei nicht geladen werden kann.
      */
     public static QuestionCatalog parseQuestions(String path) throws IOException {
         QuestionCatalog catalog = new QuestionCatalog();

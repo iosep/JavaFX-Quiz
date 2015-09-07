@@ -8,11 +8,18 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * Klasse zum Einlesen des Highscores aus einer Datei.
+ * Klasse zum Lesen und Schreiben des Highscores aus/in eine/r Datei.
  */
 public class HighscoreFileIO {
     private static final String SEPARATOR = "|";
 
+    /**
+     * Liest alle Highscores aus der highscore-Datei und gibt dementsprechend eine Liste mit Spielerobjekten zurück.
+     *
+     * @param path Pfad zur highscore-Datei.
+     * @return Highscoreliste mit Spieler-Objeken.
+     * @throws IOException wenn die highscore-Datei nicht geladen werden kann.
+     */
     public static LinkedList<Player> parseScores(String path) throws IOException {
         LinkedList<Player> highscore = new LinkedList<>();
 
@@ -43,6 +50,13 @@ public class HighscoreFileIO {
         return highscore;
     }
 
+    /**
+     * Schreibt alle Highscores in die highscore-Datei.
+     *
+     * @param path    Pfad zur highscore-Datei.
+     * @param players Liste mit Spielern, die in einen Highscore haben.
+     * @throws IOException wenn die highscore-Datei nicht geladen werden kann.
+     */
     public static void writeScores(String path, LinkedList<Player> players) throws IOException {
         File highscoreFile = new File(path);
         BufferedWriter bw = new BufferedWriter(new FileWriter(highscoreFile, false));

@@ -69,10 +69,20 @@ public class Question {
         return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && ANSWERS.size() == 4 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
     }
 
+    /**
+     * Gibt die Frage als String zurück.
+     *
+     * @return Fragestring.
+     */
     public String getQUESTION() {
         return QUESTION;
     }
 
+    /**
+     * Gibt das Frage-Objekt als formatierten String aus.
+     *
+     * @return Formatierter String.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
