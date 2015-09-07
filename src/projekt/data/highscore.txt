@@ -1,2 +1,3 @@
 2|Marian|1050
 6|Marian|300
+9|Marian|150
