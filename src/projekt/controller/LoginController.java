@@ -37,7 +37,7 @@ public class LoginController implements Initializable {
         assert playerNameTextField != null : "fx:id=\"playerNameTextField\" was not injected: check your FXML file 'LoginScreen.fxml'.";
         assert loginButton != null : "fx:id=\"loginButton\" was not injected: check your FXML file 'LoginScreen.fxml'.";
 
-        player = new Player(new Random().nextInt(Player.getSizeOfPlayerImages()), "");
+        player = new Player(new Random().nextInt(Player.getSizeOfPlayerImages()));
         playerImgView.setImage(player.getImg());
     }
 
@@ -65,7 +65,7 @@ public class LoginController implements Initializable {
     @FXML
     void loginHandler() {
         if (playerNameTextField.getText().isEmpty()) {
-            ScreenController.showWarningNotification("Please select a username", 1500);
+            ScreenController.showWarningNotification("Please select a username");
         } else {
             player.setName(playerNameTextField.getText());
             player.setScore(0);

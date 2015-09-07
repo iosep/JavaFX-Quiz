@@ -11,7 +11,7 @@ import java.util.List;
  * Klasse zum Erstellen eines Spielers.
  */
 public class Player {
-    private static List<String> playerImages = DirectoryIO.getFileList("src/" + MainApplication.DIR_PLAYER_IMAGES);
+    private static final List<String> playerImages = DirectoryIO.getFileList("src/" + MainApplication.DIR_PLAYER_IMAGES);
     private int imageNum;
     private String name;
     private int score;
@@ -19,12 +19,11 @@ public class Player {
 
     /**
      * Erstellt einen Spieler mit Namen und Bild.
+     *  @param imageNum Bildnummer des Spielers.
      *
-     * @param imageNum Bildnummer des Spielers.
-     * @param name     Name des Spielers.
      */
-    public Player(int imageNum, String name) {
-        this.name = name;
+    public Player(int imageNum) {
+        this.name = "";
         setImageNum(imageNum);
     }
 

@@ -61,7 +61,7 @@ public class HighscoreController implements Initializable {
      */
     public void initHighscore(Parent root) {
         try {
-            LinkedList<Player> players = HighscoreFileIO.parseScores(MainApplication.PATH_HIGHSCORE);
+            LinkedList<Player> players = HighscoreFileIO.parseScores();
 
             boolean added = false;
             for (int i = 0; i < players.size(); i++) {
@@ -77,7 +77,7 @@ public class HighscoreController implements Initializable {
                 players.add(player);
             }
 
-            HighscoreFileIO.writeScores(MainApplication.PATH_HIGHSCORE, players);
+            HighscoreFileIO.writeScores(players);
 
             displayHighscore((Pane) root, players);
         } catch (IOException e) {

@@ -60,16 +60,6 @@ public class Question {
     }
 
     /**
-     * Überprüft das Question-Objekt auf seine Richtigkeit und gibt ein boolean zurück.
-     *
-     * @param numPossibilities Gibt die Anzahl der Anwortmöglichkeiten an, die die Frage besitzen darf.
-     * @return True, wenn die Frage valide ist. False, wenn nicht.
-     */
-    public boolean isValid(int numPossibilities) {
-        return !QUESTION.isEmpty() && ANSWERS.size() >= 2 && ANSWERS.size() == 4 && correctAnswerIndex > -1 && correctAnswerIndex < ANSWERS.size();
-    }
-
-    /**
      * Gibt die Frage als String zurück.
      *
      * @return Fragestring.

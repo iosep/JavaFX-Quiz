@@ -16,14 +16,13 @@ public class HighscoreFileIO {
     /**
      * Liest alle Highscores aus der highscore-Datei und gibt dementsprechend eine Liste mit Spielerobjekten zurück.
      *
-     * @param path Pfad zur highscore-Datei.
      * @return Highscoreliste mit Spieler-Objeken.
      * @throws IOException wenn die highscore-Datei nicht geladen werden kann.
      */
-    public static LinkedList<Player> parseScores(String path) throws IOException {
+    public static LinkedList<Player> parseScores() throws IOException {
         LinkedList<Player> highscore = new LinkedList<>();
 
-        File highscoreFile = new File(path);
+        File highscoreFile = new File(MainApplication.PATH_HIGHSCORE);
         BufferedReader br = new BufferedReader(new FileReader(highscoreFile));
 
         String line;
@@ -53,12 +52,11 @@ public class HighscoreFileIO {
     /**
      * Schreibt alle Highscores in die highscore-Datei.
      *
-     * @param path    Pfad zur highscore-Datei.
      * @param players Liste mit Spielern, die in einen Highscore haben.
      * @throws IOException wenn die highscore-Datei nicht geladen werden kann.
      */
-    public static void writeScores(String path, LinkedList<Player> players) throws IOException {
-        File highscoreFile = new File(path);
+    public static void writeScores(LinkedList<Player> players) throws IOException {
+        File highscoreFile = new File(MainApplication.PATH_HIGHSCORE);
         BufferedWriter bw = new BufferedWriter(new FileWriter(highscoreFile, false));
 
         int i = 0;

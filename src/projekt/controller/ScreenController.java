@@ -41,7 +41,7 @@ public class ScreenController {
      *
      * @param message Anzuzeigende Nachricht.
      */
-    public static void showWarningNotification(String message, double duration) {
+    public static void showWarningNotification(String message) {
         showNotification("WARNING: " + message);
     }
 
@@ -50,7 +50,7 @@ public class ScreenController {
      *
      * @param message Anzuzeigende Nachricht.
      */
-    public static void showInformationNotification(String message, double duration) {
+    public static void showInformationNotification(String message) {
         showNotification("Information: " + message);
     }
 

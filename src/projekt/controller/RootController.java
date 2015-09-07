@@ -3,7 +3,6 @@ package projekt.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,11 +18,9 @@ public class RootController implements Initializable {
 
     /**
      * Startet ein neues Spiel.
-     *
-     * @throws IOException wenn entsprechende fxml-Datei nicht geladen werden kann.
      */
     @FXML
-    void newGameHandler() throws IOException {
+    void newGameHandler() {
         ScreenController.showLogin();
     }
 
@@ -45,21 +42,17 @@ public class RootController implements Initializable {
 
     /**
      * Zeigt die Regeln für das Spiel an.
-     *
-     * @throws IOException wenn entsprechende fxml-Datei nicht geladen werden kann.
      */
     @FXML
-    void showRulesHandler() throws IOException {
+    void showRulesHandler() {
         ScreenController.showRules();
     }
 
     /**
      * Zeigt das Fenster "Über uns" an.
-     *
-     * @throws IOException wenn entsprechende fxml-Datei nicht geladen werden kann.
      */
     @FXML
-    void aboutUsHandler() throws IOException {
+    void aboutUsHandler() {
         ScreenController.showAboutUs();
     }
 }

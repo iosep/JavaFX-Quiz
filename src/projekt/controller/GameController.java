@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
  */
 public class GameController implements Initializable {
 
-    Game game;
+    private final Game game;
 
     @FXML
     private Label playerNameText;
@@ -77,8 +77,8 @@ public class GameController implements Initializable {
 
         try {
             // fragen einlesen
-            QuestionCatalog questionCatalog = QuestionFileIO.parseQuestions(MainApplication.PATH_QUESTIONS);
-            List<String> categories = questionCatalog.getCategories(MainApplication.NUM_QUESTIONS_PER_ROUND);
+            QuestionCatalog questionCatalog = QuestionFileIO.parseQuestions();
+            List<String> categories = questionCatalog.getCategories();
 
             // prüfen, ob genug fragen vorhanden sind
             if (categories.size() >= MainApplication.NUM_ROUNDS) {
@@ -86,7 +86,7 @@ public class GameController implements Initializable {
                 game.setQuestionCatalog(questionCatalog);
 
             } else {
-                ScreenController.showWarningNotification("Not enough questions found!", 0);
+                ScreenController.showWarningNotification("Not enough questions found!");
                 ScreenController.showLogin();
             }
 
