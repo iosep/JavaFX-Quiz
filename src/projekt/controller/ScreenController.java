@@ -4,7 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import org.controlsfx.control.NotificationPane;
 import projekt.MainApplication;
 import projekt.model.Player;
 
@@ -15,7 +14,6 @@ import java.io.IOException;
  */
 public class ScreenController {
 
-    private static NotificationPane notificationPane;
     private static Stage primaryStage;
     private static Stage secondaryStage;
     private static BorderPane root;
@@ -25,15 +23,6 @@ public class ScreenController {
         root = FXMLLoader.load(MainApplication.class.getResource("view/Root.fxml"));
         primaryStage.setScene(new Scene(root));
         ScreenController.primaryStage = primaryStage;
-    }
-
-    /**
-     * Zeigt dem Benutzer eine Fehlermeldung an.
-     *
-     * @param message Anzuzeigende Nachricht.
-     */
-    public static void showErrorNotification(String message) {
-        showNotification("ERROR: " + message);
     }
 
     /**
@@ -73,7 +62,7 @@ public class ScreenController {
             root.setCenter(fxmlLoader.load());
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
-            showErrorNotification("FXML-Datei konnte nicht geladen werden (" + fxml + ".fxml)");
+            e.printStackTrace();
         }
 
         primaryStage.show();
@@ -96,7 +85,7 @@ public class ScreenController {
         try {
             secondaryStage.setScene(new Scene(fxmlLoader.load()));
         } catch (IOException e) {
-            showErrorNotification("FXML-Datei konnte nicht geladen werden (" + e.getMessage() + ")");
+            e.printStackTrace();
         }
 
         secondaryStage.show();

@@ -81,7 +81,7 @@ public class HighscoreController implements Initializable {
 
             displayHighscore((Pane) root, players);
         } catch (IOException e) {
-            ScreenController.showErrorNotification("Fehler beim Einlesen der Highscore");
+            e.printStackTrace();
         }
     }
 

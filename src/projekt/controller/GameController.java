@@ -87,9 +87,10 @@ public class GameController implements Initializable {
         answerButtons.add(answerCButton);
         answerButtons.add(answerDButton);
 
+        // fragen einlesen
+        QuestionCatalog questionCatalog;
         try {
-            // fragen einlesen
-            QuestionCatalog questionCatalog = QuestionFileIO.parseQuestions();
+            questionCatalog = QuestionFileIO.parseQuestions();
             List<String> categories = questionCatalog.getCategories();
 
             // prüfen, ob genug fragen vorhanden sind
@@ -101,9 +102,8 @@ public class GameController implements Initializable {
                 ScreenController.showWarningNotification("Not enough questions found!");
                 ScreenController.showLogin();
             }
-
         } catch (IOException e) {
-            ScreenController.showErrorNotification(e.getMessage());
+            e.printStackTrace();
         }
     }
 
