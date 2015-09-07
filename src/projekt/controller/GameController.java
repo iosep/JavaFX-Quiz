@@ -1,19 +1,25 @@
 package projekt.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 import projekt.MainApplication;
 import projekt.io.QuestionFileIO;
 import projekt.model.Game;
 import projekt.model.Player;
+import projekt.model.Question;
 import projekt.model.QuestionCatalog;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -23,6 +29,7 @@ import java.util.ResourceBundle;
 public class GameController implements Initializable {
 
     private final Game game;
+    private boolean isAnswerChoosen;
 
     @FXML
     private Label playerNameText;
@@ -51,7 +58,7 @@ public class GameController implements Initializable {
     @FXML
     private Button answerCButton;
 
-    private Button[] answerButtons;
+    private List<Button> answerButtons;
 
     /**
      * Konstruktor des GameControllers.
@@ -73,7 +80,12 @@ public class GameController implements Initializable {
         assert questionLabel != null : "fx:id=\"questionLabel\" was not injected: check your FXML file 'Game.fxml'.";
         assert answerCButton != null : "fx:id=\"answerCButton\" was not injected: check your FXML file 'Game.fxml'.";
 
-        answerButtons = new Button[]{answerAButton, answerBButton, answerCButton, answerDButton};
+        isAnswerChoosen = false;
+        answerButtons = new ArrayList<>();
+        answerButtons.add(answerAButton);
+        answerButtons.add(answerBButton);
+        answerButtons.add(answerCButton);
+        answerButtons.add(answerDButton);
 
         try {
             // fragen einlesen
@@ -100,20 +112,49 @@ public class GameController implements Initializable {
      * Dazu wird der Text der Quelle des ActionEvents auf seine Richtigkeit überprüft.
      * Wenn das Spiel zuende ist, wird die highscore.txt-View angezeigt.
      *
-     * @param event ActionEvent vom entsprechenden AnwortButton
+     * @param event ActionEvent vom entsprechenden Anwort-Button
      */
     @FXML
     void chooseAnswerHandler(ActionEvent event) {
-        if (!game.isFinished()) {
-            game.chooseAnswer(((Button) event.getSource()).getText());
-            display();
+        if (!game.isFinished() && !isAnswerChoosen) {
+            Question question = game.getCurrentQuestion();
+
+            boolean isRight = game.chooseAnswer(((Button) event.getSource()).getText());
+            isAnswerChoosen = true;
+
+            // färbt die richtige Antwort grün
+            for (Button answerButton : answerButtons) {
+                if (question.isAnswerCorrect(answerButton.getText()))
+                    answerButton.setStyle("-fx-background-color:#7fff00");
+            }
+
+            // färbt den antwortbutton rot, wenn die antwort falsch ist
+            if (!isRight)
+                ((Button) event.getSource()).setStyle("-fx-background-color:#dc143c");
+
+            // setzt das spiel nach 2 sekunden fort
+            Timeline timeline = new Timeline(new KeyFrame(
+                    Duration.millis(2000),
+                    e -> {
+                        // setzt button style zurück
+                        for (Button answerButton : answerButtons) {
+                            answerButton.setStyle("");
+                        }
+                        isAnswerChoosen = false;
+                        display();
+                    }));
+            timeline.play();
         }
 
         if (game.isFinished()) {
-            for (Button answerButton : answerButtons) {
-                answerButton.setDisable(true);
-            }
+            disableAnswerButtons(true);
             ScreenController.showHighscore(game.getPlayer());
+        }
+    }
+
+    private void disableAnswerButtons(boolean value) {
+        for (Button answerButton : answerButtons) {
+            answerButton.setDisable(value);
         }
     }
 
@@ -125,10 +166,10 @@ public class GameController implements Initializable {
         categoryLabel.setText(game.getCurrentCategory());
         questionLabel.setText(game.getCurrentQuestion().getQUESTION());
 
-        // zeige antworten
+        // zeige antworten (zufällig)
+        Collections.shuffle(answerButtons);
         for (int i = 0; i < game.getCurrentQuestion().getAnswers().size(); i++) {
-            // TODO: Antworten zufällig zeigen -> Später auf Vergleich achten
-            answerButtons[i].setText(game.getCurrentQuestion().getAnswers().get(i));
+            answerButtons.get(i).setText(game.getCurrentQuestion().getAnswers().get(i));
         }
     }
 
