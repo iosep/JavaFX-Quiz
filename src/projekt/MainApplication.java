@@ -8,7 +8,7 @@ import projekt.controller.ScreenController;
  * MainApplication-Klasse. Enthält globale Parameter für das Spiel und dient als Start für die Applikation.
  */
 public class MainApplication extends Application {
-    public static final String TITLE = "Scratcherz";
+    public static final String TITLE = "JavaFx Quiz";
     public static final String DIR_PLAYER_IMAGES = "projekt/data/img/player/";
     public static final String PATH_HIGHSCORE = "src/projekt/data/highscore.txt";
     public static final String PATH_QUESTIONS = "src/projekt/data/questions.txt";

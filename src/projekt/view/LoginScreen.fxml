@@ -20,7 +20,7 @@
             </font>
         </Text>
         <Text layoutX="64.0" layoutY="64.0" rotate="-10.5" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Scratcherz">
+              text="JavaFx Quiz">
             <font>
                 <Font size="47.0"/>
             </font>

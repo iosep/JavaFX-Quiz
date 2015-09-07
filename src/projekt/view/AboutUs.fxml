@@ -16,14 +16,14 @@
                 <Font size="22.0"/>
             </font>
         </Text>
-        <Text layoutX="64.0" layoutY="64.0" rotate="-10.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Scratcherz">
+        <Text layoutX="64.0" layoutY="64.0" rotate="-10.5" strokeType="OUTSIDE" strokeWidth="0.0" text="JavaFx Quiz">
             <font>
                 <Font size="22.0"/>
             </font>
         </Text>
     </Group>
     <Text strokeType="OUTSIDE" strokeWidth="0.0"
-          text="Das &quot;Scratcherz Quiz&quot; ist ein virtuelles Quiz, welches im Rahmen eines Uni-Projekts entstanden ist. Gruppenmitglieder der &quot;Scratcherz&quot; sind: Björn Kuhnert, Gideon O´Donnell, Nils Pinkerneil und Marian Hansing."
+          text="Das &quot;JavaFx Quiz Quiz&quot; ist ein virtuelles Quiz, welches im Rahmen eines Uni-Projekts entstanden ist. Gruppenmitglieder der &quot;JavaFx Quiz&quot; sind: Björn Kuhnert, Gideon O´Donnell, Nils Pinkerneil und Marian Hansing."
           wrappingWidth="216.13671875"/>
     <Text strokeType="OUTSIDE" strokeWidth="0.0"
           text="Nach dem Starten des Spiels erscheint der Login-Screen. Hier hat der Spieler die Möglichkeit, seinen Namen einzutragen und sich einen Spiel-Avatar auszuwählen. Bei unserem Quiz werden Fragen zu fünf Kategorien gestellt. Diese sind Technik, Kultur, Sport, Medien/Unterhaltung und Wirtschaft/Politik. Nach dem Beenden des Quiz wird die erreichte Punktzahl in einer Highscore-Liste angezeigt, um sich mit anderen Spielern zu messen."
